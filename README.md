@@ -25,17 +25,18 @@ How to use it
 -------------------
 
 First, install it:
-```bash
+```
 gem install whowish_word
 ```
 
 Or, in your Gemfile, put in the below line:
-```Gemfile
+```
 gem 'whowish_word'
 ```
 
 Second, create <Rails's root>/config/initializers/whowish_word.rb that contains:
-```ruby
+
+```
 require 'whowish_word'
 
 WhowishWord.database_engine = :mysql
