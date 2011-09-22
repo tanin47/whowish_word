@@ -34,7 +34,7 @@ Or, in your Gemfile, put in the below line:
 gem 'whowish_word'
 ```
 
-Second, create <Rails's root>/config/initializers/whowish_word.rb that contains:
+Second, create RAILS_ROOT/config/initializers/whowish_word.rb that contains:
 
 ```
 require 'whowish_word'
@@ -42,7 +42,7 @@ require 'whowish_word'
 WhowishWord.database_engine = :mysql
 ```
 
-* You can use either use :mysql or :mongodb
+You can use either use :mysql or :mongodb
 (I have planned to add :redis and :postgresql)
 
 Performance
