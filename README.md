@@ -1,5 +1,5 @@
 whowish_word
-===================
+====================
 
 whowish_word facilitates the process of changing words on a website.
 
@@ -18,6 +18,7 @@ Prerequisite
 -------------------
 
 Rails 3.0
+
 jQuery
 
 
@@ -51,7 +52,31 @@ Performance
 It is fast because words are kept in memory. They are not kept in database while your Rails is running.
 
 
-Authors
+How to extend whowish_word to suit your need
+-------------------------------------------------
+
+Sometimes whowish_word needs to render words in different form in order to suit unique needs. 
+
+
+### Example 1
+
+```
+<input type="text" placeholder="<%=word_for :default_text%>" value="<%=word_for :default_value%>">
+```
+
+When activating edit mode, we should be able to edit default_text and default_value.
+
+
+### Example 2
+
+```
+alert("<%=word_for :alert_word%>")
+```
+
+When activating edit mode, we should be able to edit alert_word.
+
+
+Author
 -------------------
 
 Tanin Na Nakorn
