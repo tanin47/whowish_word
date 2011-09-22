@@ -1,0 +1,42 @@
+<%
+  id = ""
+  if is_new
+    entity = WhowishWordEmail.new
+    id = 0
+  else
+    id = entity.id
+  end
+%>
+<span style="width:740px;display:block;margin-top:20px;border:5px solid black;background-color:#EDEDED;" id="email_<%=id%>">
+	<span style="width:720px;display:block;margin:10px 10px 10px 10px;">
+        <span style="width:100px;display:inline-block;font-weight:bold;font-size:20px;color:#999999;">
+          <%=entity.id%>
+        </span>
+        <span style="width:610px;display:inline-block;">
+            <span style="display:block;font-weight:bold;font-size:20px;">
+                Email ID: <input type="text" id="page_id_<%=id%>" value="<%=entity.page_id%>" style="width:450px;font-size:20px;" onchange="$('#email_<%=id%>').addClass('edited');">
+            </span>
+            <span style="display:block;font-weight:bold;font-size:20px;">
+                Content ID: <input type="text" id="word_id_<%=id%>" value="<%=entity.word_id%>" style="width:450px;font-size:20px;" onchange="$('#email_<%=id%>').addClass('edited');">
+            </span>
+            <span style="display:block;">
+                <textarea style="width:550px;height:200px;" id="content_<%=id%>" onchange="$('#email_<%=id%>').addClass('edited');"><%=entity.content%></textarea>
+            </span>
+            <span style="display:block;font-weight:bold;margin-left:5px;">
+                <a href="#" style="font-weight:bold;font-size:20px;" id="save_button_<%=id%>" onclick="save_email(<%=id%>);return false;">
+                    <% if is_new %>
+                      Add
+                    <% else %>
+                        Save
+                    <% end %>
+                </a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <% if !is_new %>
+                    <a href="#" style="font-weight:bold;font-size:20px;" id="delete_button_<%=id%>" onclick="delete_email(<%=id%>);return false;">
+                        Delete
+                    </a>
+                <% end %>
+            </span>
+         </span>
+	</span>
+</span>

@@ -1,0 +1,48 @@
+<%
+  id = ""
+  if is_new
+    entity = WhowishWordFacebook.new
+    id = 0
+  else
+    id = entity.id
+  end
+%>
+<span style="width:740px;display:block;margin-top:20px;border:5px solid black;background-color:#EDEDED;" id="facebook_<%=id%>">
+	<span style="width:720px;display:block;margin:10px 10px 10px 10px;">
+        <span style="width:100px;display:inline-block;font-weight:bold;font-size:20px;color:#999999;">
+          <%=entity.id%>
+        </span>
+        <span style="width:610px;display:inline-block;">
+            <span style="display:block;font-weight:bold;font-size:20px;">
+                Publish ID: <input type="text" id="publish_id_<%=id%>" value="<%=entity.publish_id%>" style="width:450px;font-size:20px;" onchange="$('#facebook_<%=id%>').addClass('edited');">
+            </span>
+            <span style="display:block;">
+                Message: <input type="text" id="message_<%=id%>" value="<%=entity.message%>" style="width:500px;" onchange="$('#facebook_<%=id%>').addClass('edited');">
+            </span>
+            <span style="display:block;">
+                Topic: <input type="text" id="name_<%=id%>" value="<%=entity.name%>" style="width:500px;" onchange="$('#facebook_<%=id%>').addClass('edited');">
+            </span>
+            <span style="display:block;">
+                Caption: <input type="text" id="caption_<%=id%>" value="<%=entity.caption%>" style="width:500px;" onchange="$('#facebook_<%=id%>').addClass('edited');">
+            </span>
+            <span style="display:block;">
+                Description: <input type="text" id="description_<%=id%>" value="<%=entity.description%>" style="width:500px;" onchange="$('#facebook_<%=id%>').addClass('edited');">
+            </span>
+            <span style="display:block;font-weight:bold;margin-left:5px;">
+                <a href="#" style="font-weight:bold;font-size:20px;" id="save_button_<%=id%>" onclick="save_facebook(<%=id%>);return false;">
+                    <% if is_new %>
+                      Add
+                    <% else %>
+                        Save
+                    <% end %>
+                </a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <% if !is_new %>
+                    <a href="#" style="font-weight:bold;font-size:20px;" id="delete_button_<%=id%>" onclick="delete_facebook(<%=id%>);return false;">
+                        Delete
+                    </a>
+                <% end %>
+            </span>
+         </span>
+	</span>
+</span>
