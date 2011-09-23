@@ -1,7 +1,7 @@
-whowish_word
+WhowishWord
 ====================
 
-whowish_word facilitates the process of changing words on a website.
+WhowishWord facilitates the process of changing words on a website.
 
 
 How you should work
@@ -18,6 +18,7 @@ Prerequisite
 -------------------
 
 Rails 3.0.*
+
 (Haven't tested with Rails 3.1.*)
 
 
