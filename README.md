@@ -57,7 +57,7 @@ Performance
 It is fast because words are kept in memory. They are not kept in database while your Rails is running.
 
 
-How to extend whowish_word to suit your need
+How to extend WhowishWord to suit your need
 -------------------------------------------------
 
 WhowishWord is nicely structure. You can extend it by writing a new handler and creator (on client-side) and a new generator (on server-side).
