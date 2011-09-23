@@ -1,0 +1,50 @@
+<%
+	module_name = entity.class.to_s.underscore
+
+	icon = "ok_icon"
+	id = entity.id
+	method = "save"
+	save_or_add = "Save"
+
+	if is_new and is_new == true
+		icon = "add_icon"
+		id = "new"
+		method = "add"
+		save_or_add = "Add"
+	end
+%>
+<div id="<%=module_name%>[<%= id %>]"	style="display:table-row;">
+	<span class="tool">
+		<span id="save_button[<%=module_name%>][<%= id %>]" onclick="<%=method%>('<%=module_name%>','<%= id %>');"><%=save_or_add%></span>
+	</span>
+<%
+	field_set.each do |f|
+		key = f[:id]
+		val = entity[key]
+		
+		if f[:type] == "textarea"
+			width = (f[:width] || 150).to_s
+%>
+		   <span style="display:table-cell;">
+		    	<textarea id="<%=module_name%>[<%= id %>][<%=key%>]" style="width:<%=width%>px;" onkeyup="$('#<%=module_name%>\\[<%= id %>\\]').addClass('edited');return true;"><%=val%></textarea>
+				<span id="errors[<%=module_name%>][<%= id %>][<%=key%>]" style="display: none;"></span>
+		   </span>
+<%
+		else
+			width = (f[:width] || 100).to_s
+%>
+		   <span style="display:table-cell;vertical-align:top;">
+		    	<input id="<%=module_name%>[<%= id %>][<%=key%>]" style="width:<%=width%>px;" type="text" value="<%= val %>" onkeyup="$('#<%=module_name%>\\[<%= id %>\\]').addClass('edited');return true;">
+				<span id="errors[<%=module_name%>][<%= id %>][<%=key%>]" style="display: none;"></span>
+			</span>
+<%
+		end
+	end
+%>
+	<span class="tool">
+		<% if id != "new" %>
+			<span style="visiblity:hidden;" id="delete_button[<%=module_name%>][<%= id %>]" onclick="remove_entry('<%=module_name%>','<%= id%>');">Delete</span>
+		<% end %>
+	</span>
+</div>
+

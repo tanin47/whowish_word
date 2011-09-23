@@ -1,0 +1,1 @@
+WhowishWord.database_engine = :mongodb

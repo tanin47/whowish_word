@@ -17,9 +17,8 @@ And when you have finished, deactivate edit mode
 Prerequisite
 -------------------
 
-Rails 3.0
-
-jQuery
+Rails 3.0.*
+(Haven't tested with Rails 3.1.*)
 
 
 How to use it
@@ -37,7 +36,7 @@ gem 'whowish_word'
 
 Second, create RAILS_ROOT/config/initializers/whowish_word.rb that contains:
 
-```
+```ruby
 require 'whowish_word'
 
 WhowishWord.database_engine = :mysql
@@ -55,25 +54,9 @@ It is fast because words are kept in memory. They are not kept in database while
 How to extend whowish_word to suit your need
 -------------------------------------------------
 
-Sometimes whowish_word needs to render words in different form in order to suit unique needs. 
+WhowishWord is nicely structure. You can extend it by writing a new handler and creator (on client-side) and a new generator (on server-side).
 
-
-### Example 1
-
-```
-<input type="text" placeholder="<%=word_for :default_text%>" value="<%=word_for :default_value%>">
-```
-
-When activating edit mode, we should be able to edit default_text and default_value.
-
-
-### Example 2
-
-```
-alert("<%=word_for :alert_word%>")
-```
-
-When activating edit mode, we should be able to edit alert_word.
+Please learn the code structure. If you have any question, feel free to ask me.
 
 
 Author
