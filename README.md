@@ -1,7 +1,7 @@
 WhowishWord
 ====================
 
-WhowishWord facilitates the process of changing words on a website.
+WhowishWord facilitates the process of changing wording on a website.
 
 
 How you should work
@@ -12,7 +12,11 @@ How you should work
 3. Click on an edit icon to edit the corresponding word
 4. Fill in a new word, and click save
 
-And when you have finished, deactivate edit mode
+And when you have finished, deactivate edit mode.
+
+WhowishWord empowers normal users (project manager, marketing department, or sales) to change wording on a website.
+This take the burden off programmers because it is extremely boring to change wording...
+
 
 Prerequisite
 -------------------
