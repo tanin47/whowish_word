@@ -5,6 +5,6 @@ class WhowishWordEmail
   field :content, :type=>String
   
   key :word_id
-
+  index :word_id, :unique=>true
 
 end

@@ -12,7 +12,7 @@ class WhowishWordController < ActionController::Base
   end
   
   def compact_policy
-    response.headers['P3P'] = 'policyref="/w3c/p3p.xml", CP="'+COMPACT_POLICY+'"'
+    response.headers['P3P'] = 'policyref="/w3c/p3p.xml", CP="NOI COR PSA OUR IND OTC"'
   end
   
   layout "whowish_word_blank"
@@ -54,7 +54,7 @@ class WhowishWordController < ActionController::Base
   
   def get_word
     logger.debug { "locale=#{$locale}"}
-    entity = WhowishWord.first(:conditions=>{:word_id => params[:word_id].strip})
+    entity = WhowishWordHtml.first(:conditions=>{:word_id => params[:word_id].strip})
     
     render :json=>{:content=>""} and return if !entity
     render :json=>{:content=>entity.content}
@@ -65,15 +65,15 @@ class WhowishWordController < ActionController::Base
     entity = nil
 
     if params[:id]
-      entity = WhowishWord.first(:conditions=>{:id => params[:id]})
+      entity = WhowishWordHtml.first(:conditions=>{:id => params[:id]})
     else
-      entity = WhowishWord.first(:conditions=>{:word_id => params[:word_id].strip})
+      entity = WhowishWordHtml.first(:conditions=>{:word_id => params[:word_id].strip})
     end
     
     if !entity
       #render :json=>{:ok=>false,:error_message=>"Cannot find "+params[:page_id]+":"+params[:word_id]} and return 
       
-      entity = WhowishWord.new
+      entity = WhowishWordHtml.new
       entity.word_id = params[:word_id].strip
       entity.content = params[:content].strip
 
@@ -90,7 +90,7 @@ class WhowishWordController < ActionController::Base
   
   def add
     
-    entity = WhowishWord.new
+    entity = WhowishWordHtml.new
     entity.word_id = params[:word_id].strip
     entity.content = params[:content].strip
     

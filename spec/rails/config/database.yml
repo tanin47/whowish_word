@@ -1,0 +1,30 @@
+
+development:
+  adapter: mysql
+  encoding: utf8
+  reconnect: false
+  database: whowish_word
+  pool: 5
+  username: root
+  password: ninat
+  host: localhost
+
+test:
+  adapter: mysql
+  encoding: utf8
+  reconnect: false
+  database: whowish_word_test
+  pool: 5
+  username: root
+  password: ninat
+  host: localhost
+
+production:
+  adapter: mysql
+  encoding: utf8
+  reconnect: false
+  database: cwhowish_word
+  pool: 40
+  username: root
+  password: ninat
+  host: localhost

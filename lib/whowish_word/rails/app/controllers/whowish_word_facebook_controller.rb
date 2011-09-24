@@ -7,7 +7,7 @@ class WhowishWordFacebookController < ActionController::Base
   end
   
   def compact_policy
-    response.headers['P3P'] = 'policyref="/w3c/p3p.xml", CP="'+COMPACT_POLICY+'"'
+    response.headers['P3P'] = 'policyref="/w3c/p3p.xml", CP="NOI COR PSA OUR IND OTC"'
   end
   
   layout "whowish_word_blank"

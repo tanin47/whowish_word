@@ -210,10 +210,10 @@
 		<span class="header" style="width:30px;">&nbsp;</span>
 	</div>
 	<% 
-		WhowishWord.all().each do |word|
+		WhowishWordHtml.all().each do |word|
  	%>
 	  	<%=render :partial=>"row", :locals=>{:entity=>word,:field_set=>@fs,:is_new=>false}%>
 	<% end %>
-	<%=render :partial=>"row", :locals=>{:entity=>WhowishWord.new,:field_set=>@fs,:is_new=>true}%>
+	<%=render :partial=>"row", :locals=>{:entity=>WhowishWordHtml.new,:field_set=>@fs,:is_new=>true}%>
 </div>
 

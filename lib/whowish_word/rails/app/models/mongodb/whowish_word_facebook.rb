@@ -9,6 +9,7 @@ class WhowishWordFacebook
   field :description, :type=>String
   
   key :publish_id
+  index :publish_id, :unique=>true
 
   def word_for(field,*p)
 

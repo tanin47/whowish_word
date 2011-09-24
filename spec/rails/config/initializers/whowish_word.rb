@@ -1,1 +1,1 @@
-WhowishWord.database_engine = :mongodb
+WhowishWord.init(:mongodb)
