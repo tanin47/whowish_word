@@ -1,0 +1,10 @@
+<% 
+	content_for :nested_layout do 
+%>
+	<%=yield%>
+	<%=word_for :normal_text%>
+<%
+	end
+%>
+
+<%= render :template => 'layouts/main' %>

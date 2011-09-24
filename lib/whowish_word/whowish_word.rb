@@ -1,12 +1,11 @@
+require File.expand_path("../constant", __FILE__)
+require File.expand_path("../initializer", __FILE__)
+
 module WhowishWord
+  include WhowishWord::Constant
+  include WhowishWord::Initializer
   
-  def database_engine=(engine)
-    @database_engine = engine
-  end
-  
-  def database_engine
-    @database_engine
-  end
+  attr_accessor :words
   
   def init(database_engine = :mysql)
     
@@ -16,51 +15,100 @@ module WhowishWord
     install_hook
     load_rails
     
-    words = WhowishWordHtml.all() + WhowishWordEmail.all()
+    words = WhowishWordHtml.all()
       
-    @whowish_word = {}
+    @words = {}
     words.each { |word|
-      @whowish_word[word.word_id] = word.content
+      @words[word.word_id] = word.content
     }
     
   end
-  
-  
-  def run_database_migration
-    
-    Dir[File.expand_path("../db_migration/#{@database_engine}/**/*.rb", __FILE__)].each {|f| require f}
-    
-  end
-  
-    
-  
-  def install_hook
-    
-    Dir[File.expand_path("../action_controller/**/*.rb", __FILE__)].each {|f| require f}
-    Dir[File.expand_path("../action_mailer/**/*.rb", __FILE__)].each {|f| require f}
-    Dir[File.expand_path("../action_view/**/*.rb", __FILE__)].each {|f| require f}
-    
-  end
-  
-  
-  
-  def load_rails
-    
-    paths = ["controllers","views","models/#{@database_engine}"]
 
-    # load all controllers, helpers, and models
-    paths.each do |dir|
+  def word_for(namespace, id, *variables)
+    return word_for_normal_mode(namespace, id, *variables)
+  end
+  
+  def word_for_attr(namespace, id, *variables)
+    return word_for_normal_mode(namespace, id, *variables)
+  end
+  
+  def word_for_in_edit_mode(namespace, id, *variables)
+    return "<dfn>#{word_for_edit_mode(namespace, id, *variables)}</dfn>".html_safe
+  end
+  
+  def word_for_attr_in_edit_mode(namespace, id, *variables)
+    return word_for_edit_mode(namespace, id, *variables)
+  end
+  
+  
+  def word_for_edit_mode(namespace, id, *variables)
+    
+    variables = sanitize_variables_arg(variables)
+    
+    locale = "en"
+    
+    variable_suffix = ""
+    if variables.length > 0
       
-      path = File.join(File.dirname(__FILE__), 'rails', 'app', dir)
+      var_keys = []
+      variables.map { |key,val| var_keys.push("#{key}") }
       
-      $LOAD_PATH.insert(0, path)
-      ActiveSupport::Dependencies.autoload_paths.insert(0, path)
-      ActiveSupport::Dependencies.autoload_once_paths.delete(path)
+      variable_suffix = "|#{var_keys.join(",")}"
       
     end
     
-    ActionController::Base.append_view_path(File.join(File.dirname(__FILE__), 'rails', 'app', 'views'))
+    return PREFIX + \
+           SEPARATOR + \
+           get_whowish_word_id(namespace, id, locale) + \
+           variable_suffix + \
+           SEPARATOR + \
+           word_for_normal_mode(namespace, id, variables)
     
+  end
+  
+  def sanitize_variables_arg(variables)
+    
+    if variables.length > 0
+      variables = variables[0]
+    else
+      variables = {}
+    end
+    
+    return variables
+    
+  end
+
+  def word_for_normal_mode(namespace, id, *variables)
+    
+    variables = sanitize_variables_arg(variables)
+    
+    locale = "en"
+    word_id = get_whowish_word_id(namespace, id, locale)
+ 
+    if @words[word_id]
+      
+      content = "#{@words[word_id]}"
+      variables.each_pair { |key,val| content.gsub!("{#{key}}","#{val}") }
+      
+    else
+      
+      content = word_id
+      
+      if variables.length > 0
+        content_params = []
+        variables.each_pair { |key,val| content_params.push("#{key}") }
+        content += "{#{content_params.join(',')}}"
+      end
+      
+    end
+
+    return content.html_safe
+      
+  end
+  
+  private
+  def get_whowish_word_id(namespace, id, locale)
+    "#{namespace}:#{id}(#{locale})".downcase
   end
 
   extend self

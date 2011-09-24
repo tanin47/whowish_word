@@ -1,0 +1,2 @@
+class TestJavascriptController < ApplicationController
+end

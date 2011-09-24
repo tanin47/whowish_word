@@ -1,0 +1,3 @@
+- Test that word_for generates message correctly (correct namspace and id and variables)
+- Test that the javascript lib generate edit icons correctly
+- Test that an edit request does change value in database and memory

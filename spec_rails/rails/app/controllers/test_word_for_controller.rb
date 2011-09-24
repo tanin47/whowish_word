@@ -1,0 +1,2 @@
+class TestWordForController < ApplicationController
+end
