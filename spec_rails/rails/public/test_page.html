@@ -46,18 +46,18 @@
 				padding: 0px 0px 0px 0px;
 			}
 			
-			body > div {
+			body > form > div {
 				display:block;
 				margin-left:25px;
 				margin-top:25px;
 			}
 			
-			body > div > span {
+			body > form > div > span {
 				display:block;
 				margin-top:5px;
 			}
 			
-			body > div > span > b {
+			body > form > div > span > b {
 				display:inline-block;
 				vertical-align: top;
 			}
@@ -65,82 +65,84 @@
 		
 	</head>
 	<body>
-		<div>
-			<span>
-				<b>Text: </b> <dfn>__whowishWord__!!!!!text_text|name,value!!!!!text</dfn>
-			</span>
-			<span>
-				<b>Label: </b> <label for="some_textbox">__whowishWord__!!!!!text_label|name,value!!!!!text</label>
-				<input type="text" name="some_textbox">
-			</span>
-			<span>
-				<b>Textbox: </b> <input type="textbox" 
-										title="__whowishWord__!!!!!title_textbox|name,value!!!!!title" 
-										value="__whowishWord__!!!!!value_textbox|name,value!!!!!value" 
-										placeholder="__whowishWord__!!!!!placeholder_textbox|name,value!!!!!placeholder">
-			</span>
-			<span>
-				<b>Textarea: </b> <textarea
-										title="__whowishWord__!!!!!title_textarea|name,value!!!!!title"
-										placeholder="__whowishWord__!!!!!placeholder_textarea|name,value!!!!!placeholder">__whowishWord__!!!!!value_textarea|name,value!!!!!value</textarea>
-			</span>
-			<span>
-				<b>Checkbox: </b> <input type="checkbox" 
-									title="__whowishWord__!!!!!title_checkbox|name,value!!!!!title" 
-									value="__whowishWord__!!!!!value_checkbox|name,value!!!!!value">
-			</span>
-			<span>
-				<b>Radio: </b> <input type="radio" 
-									title="__whowishWord__!!!!!title_radio|name,value!!!!!title" 
-									value="__whowishWord__!!!!!value_radio|name,value!!!!!value">
-			</span>
-			<span>
-				<b>Select: </b> <select title="__whowishWord__!!!!!title_select|name,value!!!!!title">
-									<option value="__whowishWord__!!!!!option_value_0|name,value!!!!!value_0">__whowishWord__!!!!!option_text_0!!!!!text_0</option>
-									<option value="__whowishWord__!!!!!option_value_1|name,value!!!!!value_1">__whowishWord__!!!!!option_text_1!!!!!text_1</option>
-								</select>
-			</span>
-			<span>
-				<b>Button(Input): </b> <input type="button" 
-										title="__whowishWord__!!!!!title_input_button|name,value!!!!!title" 
-										value="__whowishWord__!!!!!value_input_button|name,value!!!!!value" >
-			</span>
-			<span>
-				<b>Submit(Input): </b> <input type="submit" 
-										title="__whowishWord__!!!!!title_input_submit|name,value!!!!!title" 
-										value="__whowishWord__!!!!!value_input_submit|name,value!!!!!value" >
-			</span>
-			<span>
-				<b>Button: </b> <button title="__whowishWord__!!!!!title_button|name,value!!!!!title">__whowishWord__!!!!!value_button|name,value!!!!!value</button>
-			</span>
-			<span>
-				<b>Late Text: </b> <span id="late_text"></span>
-				
-				<script type="text/javascript">
+		<form autocomplete="off">
+			<div>
+				<span>
+					<b>Text: </b> <dfn>__whowishWord__!!!!!text_text|name,value!!!!!text</dfn>
+				</span>
+				<span>
+					<b>Label: </b> <label for="some_textbox">__whowishWord__!!!!!text_label|name,value!!!!!text</label>
+					<input type="text" name="some_textbox">
+				</span>
+				<span>
+					<b>Textbox: </b> <input type="textbox" 
+											title="__whowishWord__!!!!!title_textbox|name,value!!!!!title" 
+											value="__whowishWord__!!!!!value_textbox|name,value!!!!!value" 
+											placeholder="__whowishWord__!!!!!placeholder_textbox|name,value!!!!!placeholder">
+				</span>
+				<span>
+					<b>Textarea: </b> <textarea
+											title="__whowishWord__!!!!!title_textarea|name,value!!!!!title"
+											placeholder="__whowishWord__!!!!!placeholder_textarea|name,value!!!!!placeholder">__whowishWord__!!!!!value_textarea|name,value!!!!!value</textarea>
+				</span>
+				<span>
+					<b>Checkbox: </b> <input type="checkbox" 
+										title="__whowishWord__!!!!!title_checkbox|name,value!!!!!title" 
+										value="__whowishWord__!!!!!value_checkbox|name,value!!!!!value">
+				</span>
+				<span>
+					<b>Radio: </b> <input type="radio" 
+										title="__whowishWord__!!!!!title_radio|name,value!!!!!title" 
+										value="__whowishWord__!!!!!value_radio|name,value!!!!!value">
+				</span>
+				<span>
+					<b>Select: </b> <select title="__whowishWord__!!!!!title_select|name,value!!!!!title">
+										<option value="__whowishWord__!!!!!option_value_0|name,value!!!!!value_0">__whowishWord__!!!!!option_text_0!!!!!text_0</option>
+										<option value="__whowishWord__!!!!!option_value_1|name,value!!!!!value_1">__whowishWord__!!!!!option_text_1!!!!!text_1</option>
+									</select>
+				</span>
+				<span>
+					<b>Button(Input): </b> <input type="button" 
+											title="__whowishWord__!!!!!title_input_button|name,value!!!!!title" 
+											value="__whowishWord__!!!!!value_input_button|name,value!!!!!value" >
+				</span>
+				<span>
+					<b>Submit(Input): </b> <input type="submit" 
+											title="__whowishWord__!!!!!title_input_submit|name,value!!!!!title" 
+											value="__whowishWord__!!!!!value_input_submit|name,value!!!!!value" >
+				</span>
+				<span>
+					<b>Button: </b> <button title="__whowishWord__!!!!!title_button|name,value!!!!!title">__whowishWord__!!!!!value_button|name,value!!!!!value</button>
+				</span>
+				<span>
+					<b>Late Text: </b> <span id="late_text"></span>
 					
-					setTimeout(function() {
-						$('#late_text').html("<dfn>__whowishWord__!!!!!text_late_text|name,value!!!!!text</dfn>");
-					},5000);
-					
-				</script>
-			</span>
-			<span>
-				<b>Late Textbox: </b> <input type="textbox" id="late_textbox"
-										title="title" 
-										value="value" 
-										placeholder="placeholder">
-										
-				<script type="text/javascript">
-					
-					setTimeout(function() {
-						$('#late_textbox').attr("title","__whowishWord__!!!!!title_late_textbox|name,value!!!!!title");
-						$('#late_textbox').attr("value","__whowishWord__!!!!!value_late_textbox|name,value!!!!!value");
-						$('#late_textbox').attr("placeholder","__whowishWord__!!!!!placeholder_late_textbox|name,value!!!!!placeholder");
-					},5000);
-					
-				</script>
-			</span>
-		</div>
+					<script type="text/javascript">
+						
+						setTimeout(function() {
+							$('#late_text').html("<dfn>__whowishWord__!!!!!text_late_text|name,value!!!!!text</dfn>");
+						},5000);
+						
+					</script>
+				</span>
+				<span>
+					<b>Late Textbox: </b> <input type="textbox" id="late_textbox"
+											title="title" 
+											value="value" 
+											placeholder="placeholder">
+											
+					<script type="text/javascript">
+						
+						setTimeout(function() {
+							$('#late_textbox').attr("title","__whowishWord__!!!!!title_late_textbox|name,value!!!!!title");
+							$('#late_textbox').attr("value","__whowishWord__!!!!!value_late_textbox|name,value!!!!!value");
+							$('#late_textbox').attr("placeholder","__whowishWord__!!!!!placeholder_late_textbox|name,value!!!!!placeholder");
+						},5000);
+						
+					</script>
+				</span>
+			</div>
+		</form>
 		
 		<script type="text/javascript">
 			$.whowishWord(true);
