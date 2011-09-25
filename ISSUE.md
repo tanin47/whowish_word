@@ -1,26 +1,9 @@
 Current issues
 ==================
 
-Should we support Facebook and E-mail?
-----------------------------------------
 
 
-A way to activate edit mode
--------------------------------------------------
-
-It should be activate-able inside Rails application, e.g. a call to WhowishWord.activate_edit_mode.
-We let user manage its own session.
-
-The thing to look out is that we have to be careful about using a global variable within WhowishWord gem
-because it is shared among users....
-
-### Solution
-
-Create a single point of activating an edit mode, WhowishWord.activate_edit_mode()
-
-
-
-Support different database engine
+Support different database engine 
 -------------------------------------------------
 
 It is painful to use WhowishWord on different database (MySQL, PostgreSQL, MongoDB, Redis, ...).
@@ -42,6 +25,8 @@ There must be a better way that:
 
 ### Solution
 
+Just Support them directly...
+
 
 ### (Not good) Solution
 
@@ -50,7 +35,24 @@ However, this poses another problem. SQLite cannot be run on Cloud service, e.g.
 
 
 
-Javascript text issue
+
+
+A way to activate edit mode (Solved!)
+-------------------------------------------------
+
+It should be activate-able inside Rails application, e.g. a call to WhowishWord.activate_edit_mode.
+We let user manage its own session.
+
+The thing to look out is that we have to be careful about using a global variable within WhowishWord gem
+because it is shared among users....
+
+### Solution
+
+Create a single point of activating an edit mode, WhowishWord.activate_edit_mode()
+
+
+
+Javascript text issue (Solved!)
 ----------------------
 
 Javascript text being enclosed with single-quotes causes an error 
@@ -59,14 +61,7 @@ Javascript text being enclosed with single-quotes causes an error
 
 ### Solution 1
 
-Offer 2 modes: single-quote enclosing and double-quote enclosing
-This is because there is no way to know whether the whowish word is enclosed with which type of quote.
-
-### Solution 2
-
-Escape a single-quote to &#39;
-Escape a double-quote to &quot;
-
+User is responsible to make sure that all quotes are escaped.
 
 Input text attributes (Solved!)
 ----------------------

@@ -2,6 +2,23 @@
 if defined?(ActionView) and defined?(ActionView::Base)
 
   class ActionView::Base
+    
+    def whowish_word_javascript_and_css(force = false)
+      
+      return "" if @whowish_word_edit_mode != true and force == false
+      
+      script_text = <<-HTML
+        <script type="text/javascript">
+          $w(function() {
+            $w.whowishWord();
+          });
+        </script>
+      HTML
+      
+      return javascript_include_tag("/whowish_word.js") + \
+              stylesheet_link_tag("/whowish_word.css") + \
+              script_text.html_safe
+    end
 
     def global_word_for(namespace, id, *variables)
       

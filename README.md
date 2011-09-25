@@ -2,6 +2,7 @@ WhowishWord
 ====================
 
 Have you ever been bored when a project manager (or marketing department) keeps changing wording on a website?
+
 WhowishWord facilitates the process of changing wording on a website.
 
 

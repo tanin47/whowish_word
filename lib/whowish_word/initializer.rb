@@ -1,6 +1,17 @@
 module WhowishWord
 
   module Initializer
+    
+    def install_route
+      
+      Rails.application.routes.prepend do
+        match "whowish_word/change_word", :to=>"whowish_word#change_word"
+        match "whowish_word.css", :to=>"whowish_word#css"
+        match "whowish_word.js", :to=>"whowish_word#js"
+      end
+      
+    end
+    
     def run_database_migration
       
       Dir[File.expand_path("../db_migration/#{@database_engine}/**/*.rb", __FILE__)].each {|f| require f}
@@ -10,6 +21,8 @@ module WhowishWord
       
     
     def install_hook
+      
+      
       
       Dir[File.expand_path("../action_controller/**/*.rb", __FILE__)].each {|f| require f}
       Dir[File.expand_path("../action_mailer/**/*.rb", __FILE__)].each {|f| require f}

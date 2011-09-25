@@ -11,5 +11,5 @@ begin
   end
 
 rescue Exception=>e
-  puts "Create whowish_word_htmls failed: #{e}"
+
 end

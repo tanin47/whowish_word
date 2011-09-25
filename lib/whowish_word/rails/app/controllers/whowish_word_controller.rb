@@ -1,5 +1,37 @@
 class WhowishWordController < ActionController::Base
-
+  
+  def css
+    
+    text = ""
+    
+    Dir[File.expand_path("../../../public/stylesheets/*.css", __FILE__)].each { |f| 
+      text += IO.read(f)
+      text += "\n\n"
+    }
+    
+    response.headers["Content-Type"] = "text/css; charset=utf-8"
+    render :text=>text
+    
+  end
+  
+  def js
+ 
+    text = ""
+    
+    all_files = Dir[File.expand_path("../../../public/javascripts/*.js", __FILE__)]
+    all_files.sort! { |a, b| a <=> b}
+    
+    all_files.each { |file|
+      text += IO.read(file)
+      text += "\n\n"
+    }
+    
+    response.headers["Content-Type"] = "text/javascript; charset=utf-8"
+    render :text=>text
+    
+  end
+  
+  before_filter :authenticate, :only => [ :change_word ]
   def change_word
 
     entity = WhowishWordHtml.first(:conditions=>{:word_id => params[:word_id].strip})
@@ -26,29 +58,11 @@ class WhowishWordController < ActionController::Base
     render :json=>{:ok=>true}
   end
   
-  def add
-    
-    entity = WhowishWordHtml.new
-    entity.word_id = params[:word_id].strip
-    entity.content = params[:content].strip
-    
-    if !entity.save
-      render :json => {:ok=>false, :error_message=>format_error(entity.errors)}
-      return
-    end
-    
-    render :json=>{:ok=>true ,:new_row=>render_to_string(:partial=>"row.html",:locals=>{:entity=>entity,:field_set=>SHOW_FIELDS,:is_new=>false}), :entity=> entity}
-    
-  end
-  
-  def delete
-
-    if !WhowishWord.delete(params[:id])
-      render :json=>{:ok=>false,:error_message=>"error while delete location"}
-      return
-    end
- 
-    render :json=>{:ok=>true}
-  end
+  private
+   def authenticate
+      authenticate_or_request_with_http_basic do |id, password| 
+          id == WhowishWord.username && password == WhowishWord.password
+      end
+   end
   
 end

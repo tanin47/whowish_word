@@ -1,7 +1,20 @@
-<form autocomplete="off">
+<form autocomplete="off" onsubmit="return false;">
 	<div>
 		<span style="width:600px;">
 			<p>This is the page that tests every element.</p>
+		</span>
+		<span>
+			<%
+				if @whowish_word_edit_mode == true
+			%>
+					<a href="/home">Dectivate edit mode</a>
+			<%
+				else
+			%>
+					<a href="/home?edit_mode=yes">Activate edit mode</a>
+			<%
+				end
+			%>
 		</span>
 		<span>
 			<b>Text: </b> <%=word_for :text%>
@@ -79,7 +92,4 @@
 		</span>
 	</div>
 </form>
-<script type="text/javascript">
-	$.whowishWord(true);
-</script>
 
