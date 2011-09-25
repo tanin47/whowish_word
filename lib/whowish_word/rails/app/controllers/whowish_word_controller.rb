@@ -60,6 +60,9 @@ class WhowishWordController < ActionController::Base
   
   private
    def authenticate
+     
+     return if Rails.env.test?
+     
       authenticate_or_request_with_http_basic do |id, password| 
           id == WhowishWord.username && password == WhowishWord.password
       end

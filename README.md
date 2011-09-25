@@ -46,7 +46,7 @@ Second, create RAILS_ROOT/config/initializers/whowish_word.rb that contains:
 ```ruby
 require 'whowish_word'
 
-WhowishWord.database_engine = :mysql
+WhowishWord.ini
 ```
 
 You can use either use :mysql or :mongodb

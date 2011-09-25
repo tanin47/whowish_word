@@ -11,9 +11,9 @@ module WhowishWord
   
   attr_accessor :words
   
-  def init(database_engine = :mysql)
+  def init(orm_engine = :active_record)
     
-    @database_engine = database_engine
+    @orm_engine = orm_engine
     
     init_username_and_password
     run_database_migration
