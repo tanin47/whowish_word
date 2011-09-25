@@ -24,23 +24,23 @@
 			<input type="text" name="some_textbox">
 		</span>
 		<span>
-			<b>Textbox: </b> <input type="textbox" 
+			<b>Textbox: </b> <input type="textbox" name="<%=rand(1000)%>"
 									title="<%=word_for_attr :textbox_title%>" 
 									value="<%=word_for_attr :textbox_value%>" 
 									placeholder="<%=word_for_attr :textbox_placeholder%>">
 		</span>
 		<span>
-			<b>Textarea: </b> <textarea
+			<b>Textarea: </b> <textarea name="<%=rand(1000)%>"
 									title="<%=word_for_attr :textarea_title%>"
 									placeholder="<%=word_for_attr :textarea_placeholder%>"><%=word_for_attr :textarea_value%></textarea>
 		</span>
 		<span>
-			<b>Checkbox: </b> <input type="checkbox" 
+			<b>Checkbox: </b> <input type="checkbox"  name="<%=rand(1000)%>"
 								title="<%=word_for_attr :checkbox_title%>" 
 								value="<%=word_for_attr :checkbox_value%>">
 		</span>
 		<span>
-			<b>Radio: </b> <input type="radio" 
+			<b>Radio: </b> <input type="radio"  name="<%=rand(1000)%>"
 								title="<%=word_for_attr :radio_title%>" 
 								value="<%=word_for_attr :radio_value%>">
 		</span>
@@ -75,7 +75,7 @@
 			</script>
 		</span>
 		<span>
-			<b>Late Textbox: </b> <input type="textbox" id="late_textbox"
+			<b>Late Textbox: </b> <input type="textbox" id="late_textbox" name="<%=rand(1000)%>"
 									title="title" 
 									value="value" 
 									placeholder="placeholder">
