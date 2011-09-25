@@ -13,7 +13,7 @@ describe 'WhowishWord workflow spec' do
     
     html('whowishWordId0').should == "Some new word"
     
-    
+    commit_database
     
     goto '/integration?edit_mode=yes'
     
@@ -35,7 +35,7 @@ describe 'WhowishWord workflow spec' do
     
     value('whowishWordId0').should == "Some new word"
     
-    
+    commit_database
     
     goto '/integration/value?edit_mode=yes'
     
@@ -57,7 +57,7 @@ describe 'WhowishWord workflow spec' do
     
     element(:id=>'whowishWordId0').attribute_value("title").should == "Some new word"
     
-    
+    commit_database
     
     goto '/integration/attr?edit_mode=yes'
     
@@ -89,7 +89,7 @@ describe 'WhowishWord workflow spec' do
     execute_script('return $("#whowishWordId0").text();').should == "Some new text"
     
     
-    
+    commit_database
     
     goto '/integration/select?edit_mode=yes'
     

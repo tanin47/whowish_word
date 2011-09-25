@@ -2,3 +2,5 @@
 /Gemfile.lock
 spec/rails/tmp/*
 *.gem
+rails/db/*.sqlite3
+rails/tmp/*

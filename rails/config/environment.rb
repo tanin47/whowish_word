@@ -1,6 +1,11 @@
+
 # Load the rails application
 require File.expand_path('../application', __FILE__)
-require File.expand_path('../mongoid', __FILE__)
+
+
+if $ORM_ENGINE == :mongoid
+  require File.expand_path('../mongoid', __FILE__)
+end
 
 # Initialize the rails application
 WhowishWordRails::Application.initialize!
