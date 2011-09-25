@@ -1,0 +1,32 @@
+<span style="width:600px;">
+	<p>This page tests changing value of a textbox and a textarea to some constant before running WhowishWord.</p>
+	
+	<p>
+		I have found out that changing value through Javascript does not actually change the value of the attribute 'value'.
+	</p>
+	
+	<p>
+		This causes problem in the previous version because it detects that the attribute 'value' needs a WhowishWord, but
+		when the value of the element is retrieved, it does not conform with WhowishWord edit format.
+	</p>
+	
+	<p>
+		So, <i>WhowishWordElementCreator</i> explicitly exclude the attribute 'value' 
+		and let <i>WhowishWordValueCreator</i> deals with it.<br/>
+	</p>
+</span>
+<span>
+	<b>Textbox: </b> <input type="textbox" id="change_textbox"
+							title="__whowishWord_______title_textbox|name,value_____title" 
+							value="__whowishWord_______value_textbox|name,value_____value" 
+							placeholder="__whowishWord_______placeholder_textbox|name,value_____placeholder">
+</span>
+<span>
+	<b>Textarea: </b> <textarea id="change_textarea"
+							title="__whowishWord_______title_textarea|name,value_____title"
+							placeholder="__whowishWord_______placeholder_textarea|name,value_____placeholder">__whowishWord_______value_textarea|name,value_____value</textarea>
+</span>
+<script type="text/javascript">
+	$('#change_textbox').val("something else");
+	$('#change_textarea').val("something other than this");
+</script>

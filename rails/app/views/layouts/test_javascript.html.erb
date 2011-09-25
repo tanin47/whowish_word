@@ -1,0 +1,16 @@
+<% 
+	content_for :nested_layout do 
+%>
+	<form autocomplete="off">
+		<div>
+			<%=yield%>
+		</div>
+	</form>
+	<script type="text/javascript">
+		$.whowishWord(true);
+	</script>
+<%
+	end
+%>
+
+<%= render :template => 'layouts/main' %>

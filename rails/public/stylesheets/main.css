@@ -1,0 +1,22 @@
+body, input, textarea, button, select, option, div, span {
+	font-family: 'Bitstream Vera Sans Mono','Courier',monospace;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	line-height: 30px;
+}
+
+body > form > div {
+	display:block;
+	margin-left:25px;
+	margin-top:25px;
+}
+
+body > form > div > span {
+	display:block;
+	margin-top:5px;
+}
+
+body > form > div > span > b {
+	display:inline-block;
+	vertical-align: top;
+}

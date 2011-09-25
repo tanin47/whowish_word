@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Rails testing for whowish_word</title>
+		<style>
+			body > span {
+				display: block;
+			}
+		</style>
+		<%= stylesheet_link_tag "whowish_word.css"%>
+	</head>
+	<body>
+		<%= content_for?(:nested_layout) ? yield(:nested_layout) : yield %>
+		
+		<span id="layout"><%= word_for :text%></span>
+		<span id="layout_attr"><%= word_for_attr :text%></span>
+		
+		<span id="layout_with_variables"><%= word_for :text, :number=>5, :name=>"tanin" %></span>
+		<span id="layout_attr_with_variables"><%= word_for_attr :text, :number=>5, :name=>"tanin"%></span>
+	</body>
+</html>

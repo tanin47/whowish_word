@@ -1,0 +1,85 @@
+<form autocomplete="off">
+	<div>
+		<span style="width:600px;">
+			<p>This is the page that tests every element.</p>
+		</span>
+		<span>
+			<b>Text: </b> <%=word_for :text%>
+		</span>
+		<span>
+			<b>Label: </b> <label for="some_textbox"><%=word_for_attr :label_text%></label>
+			<input type="text" name="some_textbox">
+		</span>
+		<span>
+			<b>Textbox: </b> <input type="textbox" 
+									title="<%=word_for_attr :textbox_title%>" 
+									value="<%=word_for_attr :textbox_value%>" 
+									placeholder="<%=word_for_attr :textbox_placeholder%>">
+		</span>
+		<span>
+			<b>Textarea: </b> <textarea
+									title="<%=word_for_attr :textarea_title%>"
+									placeholder="<%=word_for_attr :textarea_placeholder%>"><%=word_for_attr :textarea_value%></textarea>
+		</span>
+		<span>
+			<b>Checkbox: </b> <input type="checkbox" 
+								title="<%=word_for_attr :checkbox_title%>" 
+								value="<%=word_for_attr :checkbox_value%>">
+		</span>
+		<span>
+			<b>Radio: </b> <input type="radio" 
+								title="<%=word_for_attr :radio_title%>" 
+								value="<%=word_for_attr :radio_value%>">
+		</span>
+		<span>
+			<b>Select: </b> <select title="<%=word_for_attr :select_title%>">
+								<option value="<%=word_for_attr :option_value_0%>"><%=word_for_attr :option_text_0%></option>
+								<option value="<%=word_for_attr :option_value_1%>"><%=word_for_attr :option_text_1%></option>
+							</select>
+		</span>
+		<span>
+			<b>Button(Input): </b> <input type="button" 
+									title="<%=word_for_attr :input_button_title%>" 
+									value="<%=word_for_attr :input_button_value%>" >
+		</span>
+		<span>
+			<b>Submit(Input): </b> <input type="submit" 
+									title="<%=word_for_attr :submit_title%>" 
+									value="<%=word_for_attr :submit_value%>" >
+		</span>
+		<span>
+			<b>Button: </b> <button title="<%=word_for_attr :button_title%>"><%=word_for_attr :button_value%></button>
+		</span>
+		<span>
+			<b>Late Text: </b> <span id="late_text"></span>
+			
+			<script type="text/javascript">
+				
+				setTimeout(function() {
+					$('#late_text').html("<%=word_for :late_text%>");
+				},5000);
+				
+			</script>
+		</span>
+		<span>
+			<b>Late Textbox: </b> <input type="textbox" id="late_textbox"
+									title="title" 
+									value="value" 
+									placeholder="placeholder">
+									
+			<script type="text/javascript">
+				
+				setTimeout(function() {
+					$('#late_textbox').attr("title","<%=word_for_attr :late_textbox_title%>");
+					$('#late_textbox').val("<%=word_for_attr :late_textbox_value%>");
+					$('#late_textbox').attr("placeholder","<%=word_for_attr :late_textbox_placeholder%>");
+				},5000);
+				
+			</script>
+		</span>
+	</div>
+</form>
+<script type="text/javascript">
+	$.whowishWord(true);
+</script>
+

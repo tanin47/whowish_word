@@ -23,6 +23,10 @@ module WhowishWord
     }
     
   end
+  
+  def add_or_set_word(word_id, content)
+    @words[word_id] = content
+  end
 
   def word_for(namespace, id, *variables)
     return word_for_normal_mode(namespace, id, *variables)

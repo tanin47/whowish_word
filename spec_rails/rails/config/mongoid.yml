@@ -1,9 +1,0 @@
-development:
-    host: localhost
-    port: 27017
-    database: whowish_word
-    
-production:
-    host: localhost
-    port: 27017
-    database: whowish_word

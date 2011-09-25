@@ -1,0 +1,48 @@
+<br/>
+<br/>
+<div>
+	<b>Textbox on normal div:</b> 
+	<input type="text" value="<%=word_for_attr :name_value, :number=>5, :count=>6%>" placeholder="placeholder" name="<%=rand()%>">
+	<br/>
+	<%=word_for :normal_text%>
+	<br/>
+	<%=render :partial => "test_partial"%>
+	<br/>
+	<textarea id="test_textarea" title="__whowishWord_______title_textarea_____title" name="<%=rand()%>">__whowishWord_______value_textarea_____123wegwegewg
+	wegewgweg
+	wegwegew
+	gwegwegweg
+	</textarea>
+</div>
+
+<div style="float:left;display:block;margin-top:50px;">
+	<b style="float:left;">Textbox on float div:</b> 
+	<input type="text" style="float:right;" value="__whowishWord_______float_div_1|a,b,c_____value" placeholder="__whowishWord_______float_div_1_____placeholder" name="<%=rand()%>">
+	<br style="clear:both;"/>
+	<input type="text" style="float:right;" value="__whowishWord_______float_div_2_____value" placeholder="placeholder" name="<%=rand()%>">
+	<br style="clear:both" />
+	<select id="test_select" style="float:left;">
+		<option value="__whowishWord_______option_value_____value1">__whowishWord_______option_text_____text1</option>
+		<option value="__whowishWord_______option_value_____value2">__whowishWord_______option_text_____text2</option>
+		<option value="__whowishWord_______option_value_____value3">__whowishWord_______option_text_____text3</option>
+		<option value="__whowishWord_______option_value_____value4">__whowishWord_______option_text_____text4</option>
+	</select>
+	<br/>
+	<input type="button" onclick="show_content();"/>
+	<span id="late_content"></span>
+</div>
+
+<div style="position:absolute;left:400px;top:200px;width:300px;height:100px;background-color:#BBBBBB">
+	<b>Textbox on a absolute-positioned dialog box:</b> 
+	<input type="text" value="__whowishWord_______abs_div_____value" placeholder="placeholder" style="margin-left:50px;margin-top:40px;" name="<%=rand()%>">
+	<br/>
+</div>
+
+
+<script type="text/javascript">
+	$.whowishWord(true);
+	
+	function show_content() {
+		$('#late_content').html("<dfn>__whowishWord_______late_content_____valueaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</dfn>");
+	}
+</script>

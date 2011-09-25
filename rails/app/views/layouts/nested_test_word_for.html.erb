@@ -1,0 +1,14 @@
+<% 
+	content_for :nested_layout do 
+%>
+	<%=yield%>
+	<span id="nested_layout"><%= word_for :text%></span>
+	<span id="nested_layout_attr"><%= word_for_attr :text%></span>
+	
+	<span id="nested_layout_with_variables"><%= word_for :text, :number=>5, :name=>"tanin" %></span>
+	<span id="nested_layout_attr_with_variables"><%= word_for_attr :text, :number=>5, :name=>"tanin"%></span>
+<%
+	end
+%>
+
+<%= render :template => 'layouts/test_word_for' %>

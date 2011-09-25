@@ -1,8 +1,0 @@
-source 'http://rubygems.org'
-
-gem 'rails'
-gem 'rake','0.8.7'
-gem 'mongoid'
-gem 'bson_ext'
-
-
