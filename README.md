@@ -10,11 +10,9 @@ How you should work
 -------------------
 
 1. Activate edit mode by calling:
-
 ```ruby
 activate_whowish_word_edit_mode() 
 ```
-
 in any controller. (The usual way is to use user's session to determine whether or not to activate WhowishWord)
 
 2. Go back to the website, you'll see an edit icon on each word
