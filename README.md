@@ -1,10 +1,19 @@
-WhowishWord - a wording framework for Rails
+WhowishWord - a Rails gem that make static content editable
 ====================
 
-Changing wording on a website often makes programmers go crazy.
+WhowishWord makes static content editable, as long as the programmers follow its convention.
 
-WhowishWord allows users to change wording on a Rails website, directly.
-It is so simple that anybody can do it.
+
+The problem WhowishWord tries to solve
+---------------------------------------
+
+The problem that I personally faced in my company, Whowish, is that:
+
+	Occasionally CEO or VP of Marketing would send me an email to change the word 'Save'(on a submit button) to the word 'Post'.
+	I would have to go to the source code and change it.
+	And when this happens too often, it drives us, the programmers, crazy
+
+WhowishWord tries to solve this problem elegantly. It makes a bridge for CEO, VP of Marketing (or whoever it is) to make changes themselves.
 
 The beauty of WhowishWord is that:
 
