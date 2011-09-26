@@ -18,8 +18,7 @@ in any controller. (The usual way is to use user's session to determine whether 
 2. You'll see an edit icon on each word
 3. Click on an edit icon to edit the corresponding word
 4. Fill in a new word, and click save
-
-* If it is the first time, you will need to fill master password at this point. (The instruction how to set password is below)
+	* If it is the first time, you will need to fill master password at this point. (The instruction how to set password is below)
 
 And when you have finished, deactivate edit mode.
 
