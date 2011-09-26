@@ -10,15 +10,16 @@ How you should work
 -------------------
 
 1. Activate edit mode by calling:
-```ruby
+```
 activate_whowish_word_edit_mode() 
 ```
 in any controller. (The usual way is to use user's session to determine whether or not to activate WhowishWord)
 
-2. Go back to the website, you'll see an edit icon on each word
+2. You'll see an edit icon on each word
 3. Click on an edit icon to edit the corresponding word
 4. Fill in a new word, and click save
-	4.1 If it is the first time, you will need to fill master password at this point. (The instruction how to set password is below)
+
+* If it is the first time, you will need to fill master password at this point. (The instruction how to set password is below)
 
 And when you have finished, deactivate edit mode.
 
