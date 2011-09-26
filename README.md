@@ -152,11 +152,13 @@ Tanun Niyomjit (Designer)
 Boring license stuffs
 -----------------------
 
-WhowishWord relies on jQuery 1.6.4. It is embedded into whowish_word.js, so you won't see it.
+WhowishWord relies on several libraries that you won't see.
+They are embedded into whowish_word.js.
 
 It also relies on other libraries as well:
 
-* Class.js - John Resig http://ejohn.org/blog/simple-javascript-inheritance/
+* jQuery 1.6.4 http://jquery.com/
+* Class.js (John Resig) http://ejohn.org/blog/simple-javascript-inheritance/
 * jQuery.escape http://plugins.jquery.com/project/escape
 * JSizes http://www.bramstein.com/projects/jsizes/
 * jQuery.loading_button (This is mine)
