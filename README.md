@@ -19,6 +19,7 @@ The beauty of WhowishWord is that:
 
 * It is almost transparent to programmers
 * Programmers don't have to care how wording should be. This makes them work much faster
+* It does not clutter up your source code because you replace one static content unit with one function call
 
 
 How you should work
