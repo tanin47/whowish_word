@@ -155,7 +155,7 @@ Boring license stuffs
 WhowishWord relies on several libraries that you won't see.
 They are embedded into whowish_word.js.
 
-It also relies on other libraries as well:
+The libraries:
 
 * jQuery 1.6.4 http://jquery.com/
 * Class.js (John Resig) http://ejohn.org/blog/simple-javascript-inheritance/
