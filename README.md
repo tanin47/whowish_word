@@ -1,4 +1,4 @@
-WhowishWord - A Rails framework for wording
+WhowishWord - A wording framework for Rails
 ====================
 
 Have you ever been bored when a project manager (or marketing department) keeps changing wording on a website?
