@@ -85,3 +85,21 @@ Authors
 Tanin Na Nakorn
 
 Tanun Niyomjit (The design of a dialog box)
+
+
+Boring license stuffs
+-----------------------
+
+WhowishWord relies on jQuery 1.6.4. It is embedded into whowish_word.js, so you won't see it.
+
+It also relies on other libraries as well:
+* Class.js - John Resig http://ejohn.org/blog/simple-javascript-inheritance/
+* jQuery.escape http://plugins.jquery.com/project/escape
+* JSizes http://www.bramstein.com/projects/jsizes/
+* jQuery.loading_button (This is mine)
+
+Please be aware of the licenses of other libraries.
+
+For WhowishWord's code itself, it is under this license: http://creativecommons.org/licenses/by/3.0/
+
+Basically, you can do whatever you want with it. Just give us some credits.
