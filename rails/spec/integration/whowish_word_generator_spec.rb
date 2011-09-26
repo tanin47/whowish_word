@@ -56,11 +56,15 @@ describe 'Generator spec' do
     
     goto '/test_word_for?edit_mode=yes'
     
+    html("view_before_partial").should == get_whowish_word_in_edit_mode("test_word_for/index.html.erb", "text")
+    
     html("view").should == get_whowish_word_in_edit_mode("test_word_for/index.html.erb", "text")
     html("view_attr").should == get_whowish_word_attr_in_edit_mode("test_word_for/index.html.erb", "text")
     
     html("view_with_variables").should == get_whowish_word_in_edit_mode("test_word_for/index.html.erb", "text", {:number=>5,:name=>"tanin"})
     html("view_attr_with_variables").should == get_whowish_word_attr_in_edit_mode("test_word_for/index.html.erb", "text", {:number=>5,:name=>"tanin"})
+    
+    
     
     html("partial").should == get_whowish_word_in_edit_mode("test_word_for/_partial.html.erb", "text")
     html("partial_attr").should == get_whowish_word_attr_in_edit_mode("test_word_for/_partial.html.erb", "text")
@@ -68,11 +72,19 @@ describe 'Generator spec' do
     html("partial_with_variables").should == get_whowish_word_in_edit_mode("test_word_for/_partial.html.erb", "text", {:number=>5,:name=>"tanin"})
     html("partial_attr_with_variables").should == get_whowish_word_attr_in_edit_mode("test_word_for/_partial.html.erb", "text", {:number=>5,:name=>"tanin"})
     
+    
+    
+    html("nested_layout_before_yield").should == get_whowish_word_in_edit_mode("layouts/nested_test_word_for.html.erb", "text")
+    
     html("nested_layout").should == get_whowish_word_in_edit_mode("layouts/nested_test_word_for.html.erb", "text")
     html("nested_layout_attr").should == get_whowish_word_attr_in_edit_mode("layouts/nested_test_word_for.html.erb", "text")
     
     html("nested_layout_with_variables").should == get_whowish_word_in_edit_mode("layouts/nested_test_word_for.html.erb", "text", {:number=>5,:name=>"tanin"})
     html("nested_layout_attr_with_variables").should == get_whowish_word_attr_in_edit_mode("layouts/nested_test_word_for.html.erb", "text", {:number=>5,:name=>"tanin"})
+    
+    
+    
+    html("layout_before_nested_layout").should == get_whowish_word_in_edit_mode("layouts/test_word_for.html.erb", "text")
     
     html("layout").should == get_whowish_word_in_edit_mode("layouts/test_word_for.html.erb", "text")
     html("layout_attr").should == get_whowish_word_attr_in_edit_mode("layouts/test_word_for.html.erb", "text")
@@ -86,11 +98,15 @@ describe 'Generator spec' do
     
     goto '/test_word_for'
     
+    html("view_before_partial").should == get_whowish_word("test_word_for/index.html.erb", "text")
+    
     html("view").should == get_whowish_word("test_word_for/index.html.erb", "text")
     html("view_attr").should == get_whowish_word("test_word_for/index.html.erb", "text")
     
     html("view_with_variables").should == get_whowish_word("test_word_for/index.html.erb", "text", {:number=>5,:name=>"tanin"})
     html("view_attr_with_variables").should == get_whowish_word("test_word_for/index.html.erb", "text", {:number=>5,:name=>"tanin"})
+    
+    
     
     html("partial").should == get_whowish_word("test_word_for/_partial.html.erb", "text")
     html("partial_attr").should == get_whowish_word("test_word_for/_partial.html.erb", "text")
@@ -98,11 +114,19 @@ describe 'Generator spec' do
     html("partial_with_variables").should == get_whowish_word("test_word_for/_partial.html.erb", "text", {:number=>5,:name=>"tanin"})
     html("partial_attr_with_variables").should == get_whowish_word("test_word_for/_partial.html.erb", "text", {:number=>5,:name=>"tanin"})
     
+    
+    
+    html("nested_layout_before_yield").should == get_whowish_word("layouts/nested_test_word_for.html.erb", "text")
+    
     html("nested_layout").should == get_whowish_word("layouts/nested_test_word_for.html.erb", "text")
     html("nested_layout_attr").should == get_whowish_word("layouts/nested_test_word_for.html.erb", "text")
     
     html("nested_layout_with_variables").should == get_whowish_word("layouts/nested_test_word_for.html.erb", "text", {:number=>5,:name=>"tanin"})
     html("nested_layout_attr_with_variables").should == get_whowish_word("layouts/nested_test_word_for.html.erb", "text", {:number=>5,:name=>"tanin"})
+    
+    
+    
+    html("layout_before_nested_layout").should == get_whowish_word("layouts/test_word_for.html.erb", "text")
     
     html("layout").should == get_whowish_word("layouts/test_word_for.html.erb", "text")
     html("layout_attr").should == get_whowish_word("layouts/test_word_for.html.erb", "text")

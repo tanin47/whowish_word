@@ -1,7 +1,10 @@
 <% 
 	content_for :nested_layout do 
 %>
+	<span id="nested_layout_before_yield"><%= word_for :text%></span>
+
 	<%=yield%>
+	
 	<span id="nested_layout"><%= word_for :text%></span>
 	<span id="nested_layout_attr"><%= word_for_attr :text%></span>
 	

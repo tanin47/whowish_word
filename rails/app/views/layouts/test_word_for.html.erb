@@ -11,6 +11,9 @@
 		<%= stylesheet_link_tag "whowish_word.css"%>
 	</head>
 	<body>
+		
+		<span id="layout_before_nested_layout"><%= word_for :text%></span>
+		
 		<%= content_for?(:nested_layout) ? yield(:nested_layout) : yield %>
 		
 		<span id="layout"><%= word_for :text%></span>
