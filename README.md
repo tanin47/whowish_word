@@ -6,7 +6,10 @@ This kind of tasks can make programmers go crazy.
 
 WhowishWord allows normal users to change wording on a Rails website, directly.
 
-The beauty of WhowishWord is that it does not clutter up the code.
+The beauty of WhowishWord is that:
+
+* It is almost transparent to programmers
+* Programmers don't have to care how wording should be. This makes them work much faster
 
 
 How you should work
@@ -16,6 +19,7 @@ In your view, e.g. index.html.erb, use word_for(:identifier) and word_for_attr(:
 
 ```erb
 <h1><%= word_for :title%></h1>
+<h3><%= word_for :you_are_here_for_number_of_times, :number=> 10 %></h3>
 
 <b><%= word_for :name_label%><b> <%= word_for :my_name%><br/>
 
@@ -42,6 +46,26 @@ And when you have finished, deactivate edit mode.
 
 WhowishWord empowers normal users (project manager, marketing department, or sales) to change wording on a website.
 This take the burden off programmers because it is extremely boring to change wording...
+
+### Note
+
+WhowishWord supports variables:
+
+```erb
+<%= word_for :you_are_here_for_number_of_times, :number=> 10 %>
+```
+
+If you set the word :you_are_here_for_number_of_times to be 
+
+```
+You are here {number} times already
+```
+
+WhowishWord renders it as:
+
+```
+You are here 10 times already
+```
 
 
 Prerequisite
