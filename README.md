@@ -26,7 +26,8 @@ Prerequisite
 
 Rails 3.1.*
 
-(It does not work with Rails 3.0.*, yet. Please send me an issue and I will fix it.)
+It does not work with Rails 3.0.*, yet. Please send me an issue and I will fix it. (I'm just lazy)
+
 
 
 How to use it
@@ -54,6 +55,15 @@ WhowishWord.password = "pass"
 ```
 
 You can use either use :active_record or :mongoid
+
+And, in your layout, please drop this line inside the tag header:
+
+```erb
+<%= whowish_word_javascript_and_css%>
+```
+
+It is to include the required Javascript and css files, when the edit mode is activated.
+
 
 Performance
 -------------------
