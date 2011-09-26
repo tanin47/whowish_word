@@ -13,7 +13,8 @@ How you should work
 ```
 activate_whowish_word_edit_mode() 
 ```
-in any controller. (The usual way is to use user's session to determine whether or not to activate WhowishWord)
+ in any controller. 
+ (The usual way is to use user's session to determine whether or not to activate WhowishWord's edit mode)
 
 2. You'll see an edit icon on each word
 3. Click on an edit icon to edit the corresponding word
