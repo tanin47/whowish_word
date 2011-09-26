@@ -125,11 +125,11 @@ Help me
 
 1. Fork the project
 	* Run all tests first:
-		* Go to WHOWISH_WORD_ROOT, type 
+		* Go to ROOT, type 
 		```
 			bundle exec rspec spec/*
 		```
-		* Go to WHOWISH_WORD_ROOT/rails, type
+		* Go to ROOT/rails, type
 		```
 			bundle exec rspec spec/*
 		```
