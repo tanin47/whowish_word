@@ -1,10 +1,10 @@
 WhowishWord - A wording framework for Rails
 ====================
 
-Have you ever been bored when a project manager (or marketing department) keeps changing wording on a website?
-This kind of tasks can make programmers go crazy.
+Changing wording on a website often makes programmers go crazy.
 
-WhowishWord allows normal users to change wording on a Rails website, directly.
+WhowishWord allows users to change wording on a Rails website, directly.
+It is so simple that anybody can do it.
 
 The beauty of WhowishWord is that:
 
