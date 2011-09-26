@@ -1,13 +1,30 @@
-WhowishWord (This is a draft)
+WhowishWord - A Rails framework for wording
 ====================
 
 Have you ever been bored when a project manager (or marketing department) keeps changing wording on a website?
+This kind of tasks can make programmers go crazy.
 
-WhowishWord facilitates the process of changing wording on a website.
+WhowishWord allows normal users to change wording on a Rails website, directly.
+
+The beauty of WhowishWord is that it does not clutter up the code.
 
 
 How you should work
 -------------------
+
+In your view, e.g. index.html.erb, use word_for(:identifier) and word_for_attr(:identifier):
+
+```erb
+<h1><%= word_for :title%></h1>
+
+<b><%= word_for :name_label%><b> <%= word_for :my_name%><br/>
+
+<b><%= word_for :your_name_label%></b> 
+<input type="text" placeholder="<%= word_for_attr :your_name_here%>"><br/>
+<a href="#" title="<%= word_for_attr :your_name_will_be_kept_secret%>">?</a>
+
+<button><%= word_for_attr :submit_button%></button>
+```
 
 1. Activate edit mode by calling:
 ```
