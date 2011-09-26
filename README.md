@@ -161,7 +161,7 @@ Tanin Na Nakorn
 Tanun Niyomjit (Designer)
 
 
-Boring license stuffs
+Boring legal stuff
 -----------------------
 
 WhowishWord relies on several libraries that you won't see.
