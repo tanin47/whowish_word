@@ -120,10 +120,23 @@ Performance
 It is fast because words are kept in memory. They are not kept in database while your Rails is running.
 
 
-How to extend WhowishWord to suit your need
+Help me
 -------------------------------------------------
 
-WhowishWord is nicely structure. You can extend it by writing a new handler and creator (on client-side).
+1. Fork the project
+	* Run all tests first:
+		* Go to WHOWISH_WORD_ROOT, type 
+		```
+			bundle exec rspec spec/*
+		```
+		* Go to WHOWISH_WORD_ROOT/rails, type
+		```
+			bundle exec rspec spec/*
+		```
+		* If all tests pass, you are ready to add a feature
+2. Add a feature
+3. Write a test for it
+4. Send me a pull request
 
 Please learn the code structure. If you have any question, feel free to ask me.
 
