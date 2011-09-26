@@ -30,6 +30,8 @@ In your view, e.g. index.html.erb, use word_for(:identifier) and word_for_attr(:
 <button><%= word_for_attr :submit_button%></button>
 ```
 
+Now when you want to edit wording:
+
 1. Activate edit mode by calling:
 ```
 activate_whowish_word_edit_mode() 
