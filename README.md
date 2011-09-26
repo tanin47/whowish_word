@@ -13,7 +13,9 @@ The problem that I personally faced in my company, Whowish, is that:
 	I would have to go to the source code and change it.
 	And when this happens too often, it drives us, the programmers, crazy
 
-WhowishWord tries to solve this problem elegantly. It makes a bridge for CEO, VP of Marketing (or whoever it is) to make changes themselves.
+WhowishWord tries to solve this problem elegantly. (It is much better than using a config file, trust me)
+
+It makes a bridge for CEO, VP of Marketing (or whoever it is) to make changes themselves.
 
 The beauty of WhowishWord is that:
 
