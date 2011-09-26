@@ -9,7 +9,14 @@ WhowishWord facilitates the process of changing wording on a website.
 How you should work
 -------------------
 
-1. Activate edit mode by calling activate_whowish_word_edit_mode() in any controller
+1. Activate edit mode by calling:
+
+```ruby
+activate_whowish_word_edit_mode() 
+```
+
+in any controller. (The usual way is to use user's session to determine whether or not to activate WhowishWord)
+
 2. Go back to the website, you'll see an edit icon on each word
 3. Click on an edit icon to edit the corresponding word
 4. Fill in a new word, and click save
@@ -93,6 +100,7 @@ Boring license stuffs
 WhowishWord relies on jQuery 1.6.4. It is embedded into whowish_word.js, so you won't see it.
 
 It also relies on other libraries as well:
+
 * Class.js - John Resig http://ejohn.org/blog/simple-javascript-inheritance/
 * jQuery.escape http://plugins.jquery.com/project/escape
 * JSizes http://www.bramstein.com/projects/jsizes/
