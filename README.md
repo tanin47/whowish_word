@@ -15,7 +15,7 @@ The problem that I personally faced in my company, Whowish, is that:
 
 WhowishWord tries to solve this problem elegantly. It is much better than using a config file.
 
-It makes a simple tool for CEO, VP of Marketing (or whoever it is) to make changes themselves.
+It gives a simple tool for CEO, VP of Marketing (or whoever it is) to make changes themselves.
 
 The beauty of WhowishWord is that:
 

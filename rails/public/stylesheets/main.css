@@ -16,6 +16,11 @@ body > form > div > span {
 	margin-top:5px;
 }
 
+body > form > div > div > span {
+	display:block;
+	margin-top:5px;
+}
+
 body > form > div > span > b {
 	display:inline-block;
 	vertical-align: top;

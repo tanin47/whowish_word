@@ -1,0 +1,96 @@
+<span style="width:600px;">
+	<p>This page tests replacing, hiding and showing content with raw html.</p>
+	
+	<p>
+		I have found that if we move content by raw html, some variables bound with the element will be deleted.
+		This is because the elements are deleted and recreated.
+		
+		WhowishWord solves that problem by storing all needed data in its hash instead with the element's id as a key.
+	</p>
+	
+</span>
+<div id="all_elements">
+	<span>
+		<b>Text: </b> <dfn>__whowishWord_______text_text|name,value_____text</dfn>
+	</span>
+	<span>
+		<b>Label: </b> <label for="some_textbox">__whowishWord_______text_label|name,value_____text</label>
+		<input type="text" name="some_textbox">
+	</span>
+	<span>
+		<b>Textbox: </b> <input type="textbox" 
+								title="__whowishWord_______title_textbox|name,value_____title" 
+								value="__whowishWord_______value_textbox|name,value_____value" 
+								placeholder="__whowishWord_______placeholder_textbox|name,value_____placeholder">
+	</span>
+	<span>
+		<b>Textarea: </b> <textarea
+								title="__whowishWord_______title_textarea|name,value_____title"
+								placeholder="__whowishWord_______placeholder_textarea|name,value_____placeholder">__whowishWord_______value_textarea|name,value_____value</textarea>
+	</span>
+	<span>
+		<b>Checkbox: </b> <input type="checkbox" 
+							title="__whowishWord_______title_checkbox|name,value_____title" 
+							value="__whowishWord_______value_checkbox|name,value_____value">
+	</span>
+	<span>
+		<b>Radio: </b> <input type="radio" 
+							title="__whowishWord_______title_radio|name,value_____title" 
+							value="__whowishWord_______value_radio|name,value_____value">
+	</span>
+	<span>
+		<b>Select: </b> <select title="__whowishWord_______title_select|name,value_____title">
+							<option value="__whowishWord_______option_value_0|name,value_____value_0">__whowishWord_______option_text_0_____text_0</option>
+							<option value="__whowishWord_______option_value_1|name,value_____value_1">__whowishWord_______option_text_1_____text_1</option>
+						</select>
+	</span>
+	<span>
+		<b>Button(Input): </b> <input type="button" 
+								title="__whowishWord_______title_input_button|name,value_____title" 
+								value="__whowishWord_______value_input_button|name,value_____value" >
+	</span>
+	<span>
+		<b>Submit(Input): </b> <input type="submit" 
+								title="__whowishWord_______title_input_submit|name,value_____title" 
+								value="__whowishWord_______value_input_submit|name,value_____value" >
+	</span>
+	<span>
+		<b>Button: </b> <button title="__whowishWord_______title_button|name,value_____title">__whowishWord_______value_button|name,value_____value</button>
+	</span>
+	<span>
+		<b>Late Text: </b> <span id="late_text"></span>
+		
+		<script type="text/javascript">
+			
+			setTimeout(function() {
+				$('#late_text').html("<dfn>__whowishWord_______text_late_text|name,value_____text</dfn>");
+			},5000);
+			
+		</script>
+	</span>
+	<span>
+		<b>Late Textbox: </b> <input type="textbox" id="late_textbox"
+								title="title" 
+								value="value" 
+								placeholder="placeholder">
+								
+		<script type="text/javascript">
+			
+			setTimeout(function() {
+				$('#late_textbox').attr("title","__whowishWord_______title_late_textbox|name,value_____title");
+				$('#late_textbox').attr("value","__whowishWord_______value_late_textbox|name,value_____value");
+				$('#late_textbox').attr("placeholder","__whowishWord_______placeholder_late_textbox|name,value_____placeholder");
+			},5000);
+			
+		</script>
+	</span>
+</div><br/>
+<input type="button" value="Replace all contents" onclick="replace_all_content();">
+<script type="text/javascript">
+	function replace_all_content() {
+		$('#all_elements').html($('#all_elements').html());
+	}
+</script>
+
+
+
