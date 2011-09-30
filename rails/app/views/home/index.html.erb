@@ -20,6 +20,15 @@
 			<b>Text: </b> <%=word_for :text%>
 		</span>
 		<span>
+			<b>Bullet: </b> <ul>
+								<li><%=word_for :text%></li>
+								<li><%=word_for :text%></li>
+							</ul>
+		</span>
+		<span>
+			<b>Anchor: </b> <a href="#"><%=word_for :text%></a>
+		</span>
+		<span>
 			<b>Label: </b> <label for="some_textbox"><%=word_for_attr :label_text%></label>
 			<input type="text" name="some_textbox">
 		</span>
