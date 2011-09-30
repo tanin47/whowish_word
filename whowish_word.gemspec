@@ -3,13 +3,13 @@ $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = "whowish_word"
-  s.version     = "0.1.9"
+  s.version     = "0.2.0"
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Tanin Na Nakorn"]
   s.email       = ["tanin47@yahoo.com"]
   s.homepage    = "http://github.com/tanin47/whowish_word"
   s.summary     = %q{WhowishWord}
-  s.description = %q{A wording framework for Rails}
+  s.description = %q{A Rails gem that make static content editable}
 
   s.rubyforge_project = "whowish_word"
 
