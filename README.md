@@ -83,6 +83,11 @@ WhowishWord renders it as:
 You are here 10 times already
 ```
 
+Feature to be added
+---------------------
+
+- Multi-language support
+
 
 Prerequisite
 -------------------
