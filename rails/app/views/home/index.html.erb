@@ -62,15 +62,17 @@
 		<span>
 			<b>Button(Input): </b> <input type="button" 
 									title="<%=word_for_attr :input_button_title%>" 
-									value="<%=word_for_attr :input_button_value%>" >
+									value="<%=word_for_attr :input_button_value%>" 
+									onclick="alert('hello');">
 		</span>
 		<span>
 			<b>Submit(Input): </b> <input type="submit" 
 									title="<%=word_for_attr :submit_title%>" 
-									value="<%=word_for_attr :submit_value%>" >
+									value="<%=word_for_attr :submit_value%>" 
+									onclick="alert('hello');">
 		</span>
 		<span>
-			<b>Button: </b> <button title="<%=word_for_attr :button_title%>"><%=word_for_attr :button_value%></button>
+			<b>Button: </b> <button title="<%=word_for_attr :button_title%>" onclick="alert('hello');"><%=word_for_attr :button_value%></button>
 		</span>
 		<span>
 			<b>Late Text: </b> <span id="late_text"></span>
