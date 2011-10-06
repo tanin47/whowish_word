@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
     if params[:edit_mode] == "yes"
       activate_whowish_word_edit_mode
     end
+    
+    
   end
   
   

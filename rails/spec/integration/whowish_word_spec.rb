@@ -5,6 +5,7 @@ describe 'WhowishWord workflow spec' do
   it "edits a normal text" do
     
     goto '/integration?edit_mode=yes'
+    sleep(1)
     
     click 'whowishWordId0_____html'
     
@@ -16,6 +17,7 @@ describe 'WhowishWord workflow spec' do
     commit_database
     
     goto '/integration?edit_mode=yes'
+    sleep(1)
     
     html('whowishWordId0').should == "Some new word"
     
@@ -27,6 +29,7 @@ describe 'WhowishWord workflow spec' do
   it "edits a value" do
     
     goto '/integration/value?edit_mode=yes'
+    sleep(1)
     
     click 'whowishWordId0_____value'
     
@@ -38,6 +41,7 @@ describe 'WhowishWord workflow spec' do
     commit_database
     
     goto '/integration/value?edit_mode=yes'
+    sleep(1)
     
     value('whowishWordId0').should == "Some new word"
     
@@ -49,6 +53,7 @@ describe 'WhowishWord workflow spec' do
   it "edits an attribute" do
     
     goto '/integration/attr?edit_mode=yes'
+     sleep(1)
     
     click 'whowishWordId0_____title'
     
@@ -71,6 +76,7 @@ describe 'WhowishWord workflow spec' do
   it "edits an option" do
     
     goto '/integration/select?edit_mode=yes'
+    sleep(1)
     
     
     click 'whowishWordId0_____value'
@@ -92,6 +98,7 @@ describe 'WhowishWord workflow spec' do
     commit_database
     
     goto '/integration/select?edit_mode=yes'
+    sleep(1)
     
     value('whowishWordId0').should == "Some new value"
     

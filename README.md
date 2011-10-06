@@ -3,6 +3,8 @@ WhowishWord - a Rails gem that make static content editable
 
 WhowishWord makes static content editable, as long as the programmers follow its convention.
 
+Demo: http://whowish-word.heroku.com
+
 
 The problem WhowishWord tries to solve
 ---------------------------------------
@@ -22,6 +24,8 @@ The beauty of WhowishWord is that:
 * It is almost transparent to programmers
 * Programmers don't have to care how wording should be. This makes them work much faster
 * It does not clutter up your source code because you replace one static content unit with one function call
+
+Demo: http://whowish-word.heroku.com
 
 
 How you should work
@@ -54,7 +58,6 @@ activate_whowish_word_edit_mode()
 2. You'll see an edit icon on each word
 3. Click on an edit icon to edit the corresponding word
 4. Fill in a new word, and click save
-	* If it is the first time, you will need to fill master password at this point. (The instruction how to set password is in 'How to use it' section)
 
 And when you have finished, deactivate edit mode.
 
@@ -118,8 +121,6 @@ require 'whowish_word'
 
 WhowishWord.init(:active_record)
 
-WhowishWord.username = "root"
-WhowishWord.password = "pass"
 ```
 
 You can use either use :active_record or :mongoid

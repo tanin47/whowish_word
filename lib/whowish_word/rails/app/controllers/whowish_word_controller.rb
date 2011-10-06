@@ -31,7 +31,6 @@ class WhowishWordController < ActionController::Base
     
   end
   
-  before_filter :authenticate, :only => [ :change_word ]
   def change_word
 
     entity = WhowishWordHtml.first(:conditions=>{:word_id => params[:word_id].strip})
@@ -58,14 +57,5 @@ class WhowishWordController < ActionController::Base
     render :json=>{:ok=>true}
   end
   
-  private
-   def authenticate
-     
-     return if Rails.env.test?
-     
-      authenticate_or_request_with_http_basic do |id, password| 
-          id == WhowishWord.username && password == WhowishWord.password
-      end
-   end
   
 end

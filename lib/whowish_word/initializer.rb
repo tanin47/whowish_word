@@ -22,8 +22,6 @@ module WhowishWord
     
     def install_hook
       
-      
-      
       Dir[File.expand_path("../action_controller/**/*.rb", __FILE__)].each {|f| require f}
       Dir[File.expand_path("../action_mailer/**/*.rb", __FILE__)].each {|f| require f}
       Dir[File.expand_path("../action_view/**/*.rb", __FILE__)].each {|f| require f}
@@ -33,7 +31,7 @@ module WhowishWord
     
     def load_rails
       
-      paths = ["controllers","views","models/#{@orm_engine}"]
+      paths = ["controllers","models/#{@orm_engine}"]
   
       # load all controllers, helpers, and models
       paths.each do |dir|
@@ -46,7 +44,7 @@ module WhowishWord
         
       end
       
-      ActionController::Base.append_view_path(File.join(File.dirname(__FILE__), 'rails', 'app', 'views'))
+      ActionController::Base.append_view_path(File.join(File.dirname(__FILE__), 'rails', 'app'))
       
     end
     

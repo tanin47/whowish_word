@@ -21,14 +21,6 @@ RSpec.configure do |config|
   config.include MongoidHelper
   config.include JsonRspecHelper
   
-  config.before(:suite) do
-    
-    class WhowishWordController
-      def authenticate;end
-    end
-    
-  end
-  
   config.before(:each) do
     
     WhowishWordHtml.delete_all
