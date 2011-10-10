@@ -73,7 +73,7 @@ module WhowishWord
         
       else
         
-        content = word_id
+        content = "#{id}(#{locale})"
         
         if variables.length > 0
           content_params = []
