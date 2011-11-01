@@ -15,8 +15,8 @@ if defined?(ActionView) and defined?(ActionView::Base)
         </script>
       HTML
       
-      return javascript_include_tag("/whowish_word.js") + \
-              stylesheet_link_tag("/whowish_word.css") + \
+      return javascript_include_tag("/whowish_word_js").sub('.js', '').html_safe + \
+              stylesheet_link_tag("/whowish_word_css").sub('.css', '').html_safe + \
               script_text.html_safe
     end
 

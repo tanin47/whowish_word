@@ -6,8 +6,8 @@ module WhowishWord
       
       Rails.application.routes.prepend do
         match "whowish_word/change_word", :to=>"whowish_word#change_word"
-        match "whowish_word.css", :to=>"whowish_word#css"
-        match "whowish_word.js", :to=>"whowish_word#js"
+        match "whowish_word_css", :to=>"whowish_word#css"
+        match "whowish_word_js", :to=>"whowish_word#js"
       end
       
     end
