@@ -50,7 +50,7 @@ Now when you want to edit wording:
 
 1. Activate edit mode by calling:
 ```
-activate_whowish_word_edit_mode() 
+whowish_word.activate_edit_mode
 ```
  in any controller. 
  (The usual way is to use user's session to determine whether or not to activate WhowishWord's edit mode)
@@ -86,10 +86,29 @@ WhowishWord renders it as:
 You are here 10 times already
 ```
 
-Feature to be added
----------------------
+Multi-language support
+-----------------------
 
-- Multi-language support
+You can change locale of WhowishWord by:
+
+```ruby
+whowish_word.set_locale("jp")
+```
+
+In Rails, you should add before_filter in the application controller as shown below:
+
+```ruby
+before_filter :set_locale
+
+def set_locale
+  if params[:locale]
+    session[:locale] = params[:locale]
+  end
+
+  session[:locale] ||= "en"
+  whowish_word.set_locale(session[:locale])
+end
+```
 
 
 Prerequisite

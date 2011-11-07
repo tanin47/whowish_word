@@ -1,3 +1,4 @@
+require File.expand_path("../config", __FILE__)
 require File.expand_path("../constant", __FILE__)
 require File.expand_path("../initializer", __FILE__)
 require File.expand_path("../word_for", __FILE__)

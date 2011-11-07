@@ -5,28 +5,26 @@ module WhowishWord
   module WordFor
     include WhowishWord::Constant
     
-    def word_for(namespace, id, *variables)
-      return word_for_normal_mode(namespace, id, *variables)
+    def word_for(namespace, id, locale, *variables)
+      return word_for_normal_mode(namespace, id, locale, *variables)
     end
     
-    def word_for_attr(namespace, id, *variables)
-      return word_for_normal_mode(namespace, id, *variables)
+    def word_for_attr(namespace, id, locale, *variables)
+      return word_for_normal_mode(namespace, id, locale, *variables)
     end
     
-    def word_for_in_edit_mode(namespace, id, *variables)
-      return "<dfn>#{word_for_edit_mode(namespace, id, *variables)}</dfn>".html_safe
+    def word_for_in_edit_mode(namespace, id, locale, *variables)
+      return "<dfn>#{word_for_edit_mode(namespace, id, locale, *variables)}</dfn>".html_safe
     end
     
-    def word_for_attr_in_edit_mode(namespace, id, *variables)
-      return word_for_edit_mode(namespace, id, *variables)
+    def word_for_attr_in_edit_mode(namespace, id, locale, *variables)
+      return word_for_edit_mode(namespace, id, locale, *variables)
     end
     
     
-    def word_for_edit_mode(namespace, id, *variables)
+    def word_for_edit_mode(namespace, id, locale, *variables)
       
       variables = sanitize_variables_arg(variables)
-      
-      locale = "en"
       
       variable_suffix = ""
       if variables.length > 0
@@ -43,7 +41,7 @@ module WhowishWord
              get_whowish_word_id(namespace, id, locale) + \
              variable_suffix + \
              SEPARATOR + \
-             word_for_normal_mode(namespace, id, variables)
+             word_for_normal_mode(namespace, id, locale, variables)
       
     end
     
@@ -59,11 +57,10 @@ module WhowishWord
       
     end
   
-    def word_for_normal_mode(namespace, id, *variables)
+    def word_for_normal_mode(namespace, id, locale, *variables)
       
       variables = sanitize_variables_arg(variables)
       
-      locale = "en"
       word_id = get_whowish_word_id(namespace, id, locale)
    
       if @words[word_id]

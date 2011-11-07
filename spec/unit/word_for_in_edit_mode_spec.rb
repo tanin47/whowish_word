@@ -9,16 +9,16 @@ describe 'word_for' do
   
   it "no variables, no entry" do
     
-    value = WhowishWord.word_for_in_edit_mode("namespace", "id")
-    value.should == "<dfn>#{WhowishWord::PREFIX}#{WhowishWord::SEPARATOR}namespace:id(en)#{WhowishWord::SEPARATOR}namespace:id(en)</dfn>"
+    value = WhowishWord.word_for_in_edit_mode("namespace", "id", "en")
+    value.should == "<dfn>#{WhowishWord::PREFIX}#{WhowishWord::SEPARATOR}namespace:id(en)#{WhowishWord::SEPARATOR}id(en)</dfn>"
     
   end
   
   
   it "with variables, no entry" do
     
-    value = WhowishWord.word_for_in_edit_mode("namespace", "id", :number=>5, :name=>"tanin")
-    value.should == "<dfn>#{WhowishWord::PREFIX}#{WhowishWord::SEPARATOR}namespace:id(en)|number,name#{WhowishWord::SEPARATOR}namespace:id(en){number,name}</dfn>"
+    value = WhowishWord.word_for_in_edit_mode("namespace", "id", "en", :number=>5, :name=>"tanin")
+    value.should == "<dfn>#{WhowishWord::PREFIX}#{WhowishWord::SEPARATOR}namespace:id(en)|number,name#{WhowishWord::SEPARATOR}id(en){number,name}</dfn>"
     
   end
   
@@ -26,7 +26,7 @@ describe 'word_for' do
   it "no variables, with entry" do
     
     WhowishWord.words = {"namespace:id(en)" => "hello"}
-    value = WhowishWord.word_for_in_edit_mode("namespace", "id")
+    value = WhowishWord.word_for_in_edit_mode("namespace", "id", "en")
     value.should == "<dfn>#{WhowishWord::PREFIX}#{WhowishWord::SEPARATOR}namespace:id(en)#{WhowishWord::SEPARATOR}hello</dfn>"
     
   end
@@ -35,7 +35,7 @@ describe 'word_for' do
   it "with variables, with entry" do
     
     WhowishWord.words = {"namespace:id(en)" => "hello {name} for {number} times"}
-    value = WhowishWord.word_for_in_edit_mode("namespace", "id", :number=>5, :name=>"tanin")
+    value = WhowishWord.word_for_in_edit_mode("namespace", "id", "en", :number=>5, :name=>"tanin")
     value.should == "<dfn>#{WhowishWord::PREFIX}#{WhowishWord::SEPARATOR}namespace:id(en)|number,name#{WhowishWord::SEPARATOR}hello tanin for 5 times</dfn>"
     
   end

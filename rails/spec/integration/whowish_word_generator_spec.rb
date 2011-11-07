@@ -15,7 +15,7 @@ module WhowishWordRspecHelper
     variables_clause = ""
     variables_clause = "{#{var_keys.join(',')}}" if var_keys.length > 0
     
-    return "#{namespace}:#{id}(en)#{variables_clause}"
+    return "#{id}(en)#{variables_clause}"
     
   end
   
@@ -42,7 +42,7 @@ module WhowishWordRspecHelper
            SEPARATOR + \
            "#{namespace}:#{id}(en)#{variables_params}" + \
            SEPARATOR + \
-           "#{namespace}:#{id}(en)#{variables_clause}"
+           "#{id}(en)#{variables_clause}"
            
   end
   
