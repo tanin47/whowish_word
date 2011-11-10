@@ -45,7 +45,7 @@ module WhowishWord
       end
       
       ActionController::Base.append_view_path(File.join(File.dirname(__FILE__), 'rails', 'app'))
-      
+
     end
     
   end

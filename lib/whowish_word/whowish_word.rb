@@ -17,10 +17,11 @@ module WhowishWord
     @orm_engine = orm_engine
     
     init_username_and_password
-    run_database_migration
     install_route
     install_hook
     load_rails
+    
+    run_database_migration
     
     words = WhowishWordHtml.all()
       

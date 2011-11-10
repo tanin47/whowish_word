@@ -4,6 +4,6 @@ class WhowishWordHtml
   field :word_id,:type=>String
   field :content, :type=>String
   
-  index :word_id, :unique=>true
+  index [[ :word_id, Mongo::DESCENDING ]], :unique=>true
   
 end
