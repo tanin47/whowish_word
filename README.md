@@ -31,19 +31,19 @@ Demo: http://whowish-word.heroku.com
 How you should work
 -------------------
 
-In your view, e.g. index.html.erb, use word_for(:identifier) and word_for_attr(:identifier):
+In your view, e.g. index.html.erb, use t(:identifier) and ta(:identifier):
 
 ```erb
-<h1><%= word_for :title%></h1>
-<h3><%= word_for :you_are_here_for_number_of_times, :number=> 10 %></h3>
+<h1><%=t :title%></h1>
+<h3><%=t :you_are_here_for_number_of_times, :number=> 10 %></h3>
 
-<b><%= word_for :name_label%><b> <%= word_for :my_name%><br/>
+<b><%=t :name_label%><b> <%=t :my_name%><br/>
 
-<b><%= word_for :your_name_label%></b> 
-<input type="text" placeholder="<%= word_for_attr :your_name_here%>"><br/>
-<a href="#" title="<%= word_for_attr :your_name_will_be_kept_secret%>">?</a>
+<b><%=t :your_name_label%></b> 
+<input type="text" placeholder="<%=ta :your_name_here%>"><br/>
+<a href="#" title="<%=ta :your_name_will_be_kept_secret%>">?</a>
 
-<button><%= word_for_attr :submit_button%></button>
+<button><%=ta :submit_button%></button>
 ```
 
 Now when you want to edit wording:
@@ -71,13 +71,13 @@ Demo: http://whowish-word.heroku.com
 WhowishWord supports variables:
 
 ```erb
-<%= word_for :you_are_here_for_number_of_times, :number=> 10 %>
+<%=t :you_are_here_for_number_of_times, :number=> 10 %>
 ```
 
 If you set the word :you_are_here_for_number_of_times to be 
 
 ```
-You are here {number} times already
+You are here %{number} times already
 ```
 
 WhowishWord renders it as:
@@ -92,7 +92,7 @@ Multi-language support
 You can change locale of WhowishWord by:
 
 ```ruby
-whowish_word.set_locale("jp")
+I18n.locale = :en
 ```
 
 In Rails, you should add before_filter in the application controller as shown below:
@@ -106,7 +106,7 @@ def set_locale
   end
 
   session[:locale] ||= "en"
-  whowish_word.set_locale(session[:locale])
+  I18n.locale = session[:locale].to_sym
 end
 ```
 
@@ -114,7 +114,7 @@ end
 Prerequisite
 -------------------
 
-Rails 3.1.*
+Rails 3.2.3
 
 It does not work with Rails 3.0.*, yet. Please send me an issue and I will fix it. (I'm just lazy)
 
@@ -123,7 +123,7 @@ It does not work with Rails 3.0.*, yet. Please send me an issue and I will fix i
 How to use it
 -------------------
 
-First, install it:
+1. Install it:
 ```
 gem install whowish_word
 ```
@@ -133,16 +133,14 @@ Or, in your Gemfile, put in the below line:
 gem 'whowish_word'
 ```
 
-Second, create RAILS_ROOT/config/initializers/whowish_word.rb that contains:
+2. Create ```RAILS_ROOT/config/initializers/whowish_word.rb``` that contains:
 
 ```ruby
 require 'whowish_word'
 
-WhowishWord.init(:active_record)
+WhowishWord.init()
 
 ```
-
-You can use either use :active_record or :mongoid
 
 And, in your layout, please drop this line inside the tag header:
 
@@ -152,11 +150,12 @@ And, in your layout, please drop this line inside the tag header:
 
 It is to include the required Javascript and css files, when the edit mode is activated.
 
+3. When deploying, please create a folder ```RAILS_ROOT/config/locales/whowish_word``` and make it a shared path.
 
-Performance
--------------------
+All edited words will be generated in this folder.
 
-It is fast because words are kept in memory. They are not kept in database while your Rails is running.
+Please also make the folder writable.
+
 
 
 Help me
@@ -164,10 +163,6 @@ Help me
 
 1. Fork the project
 	* Run all tests first:
-		* Go to ROOT, type 
-		```
-			bundle exec rspec spec/*
-		```
 		* Go to ROOT/rails, type
 		```
 			bundle exec rspec spec/*
@@ -184,7 +179,6 @@ Authors
 -------------------
 
 Tanin Na Nakorn
-
 Tanun Niyomjit (Designer)
 
 

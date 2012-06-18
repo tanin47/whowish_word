@@ -1,4 +1,4 @@
-class WhowishWordController < ActionController::Base
+class WhowishWordController < ApplicationController
   def css
     text = ""
     
@@ -27,21 +27,44 @@ class WhowishWordController < ActionController::Base
   end
   
   def change_word
-    File.open(File.join(Rails.root, "config", "locales", "whowish_word", "en.yml") , 'r+', 0777) {|f|
-      f.flock(File::LOCK_EX)
-
-      data = YAML.parse(f.read).to_ruby
-      
-      data["en"] = {} if !data.has_key?("en")
-      data["en"][params[:word_id]] = params[:content]
-
-      f.rewind
-      f.write(YAML.dump(data))
-    }
-
-
-    I18n.translations[:en][params[:word_id].to_sym] = params[:content]
+    locale_file = File.join(Rails.root, "config", "locales", "whowish_word", "#{I18n.locale}.yml")
     
-    render :json=>{:ok=>true}
+    file = nil
+    data = {}
+    
+    begin
+      if !File.exists?(locale_file)
+        file = File.open(locale_file, 'w', 0777)
+        file.flock(File::LOCK_EX)
+      else
+        file = File.open(locale_file, 'r+', 0777)
+        file.flock(File::LOCK_EX)
+      end
+
+      begin
+        file.rewind
+        data = YAML.parse(file.read).to_ruby
+      rescue
+        data = {}
+      end
+
+      data[I18n.locale.to_s] ||= {}
+      data[I18n.locale.to_s][params[:word_id]] = params[:content]
+
+      file.rewind
+      file.write(YAML.dump(data))
+      file.flush
+      file.truncate(file.pos)
+    ensure
+      file.flock(File::LOCK_UN)
+      file.close
+    end
+
+    I18n.translations[I18n.locale.to_sym] ||= {}
+    I18n.translations[I18n.locale.to_sym][params[:word_id].to_sym] = params[:content]
+    
+    render :json=>{
+      :ok => true
+    }
   end
 end

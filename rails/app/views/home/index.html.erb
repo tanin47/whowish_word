@@ -1,4 +1,4 @@
-<%=t :hello%>
+<%=I18n.locale%>
 <a href="/home?locale=en">en</a><br/>
 <a href="/home?locale=th">th</a><br/>
 <a href="/home?locale=jp">jp</a>
@@ -21,62 +21,62 @@
 			%>
 		</span>
 		<span>
-			<b>Text: </b> <%=word_for :text%>
+			<b>Text: </b> <%=t :text%>
 		</span>
 		<span>
 			<b>Bullet: </b> <ul>
-								<li><%=word_for :text1%></li>
-								<li><%=word_for :text2%></li>
+								<li><%=t :text1%></li>
+								<li><%=t :text2%></li>
 							</ul>
 		</span>
 		<span>
-			<b>Anchor: </b> <a href="#"><%=word_for :text3%></a>
+			<b>Anchor: </b> <a href="#"><%=t :text3%></a>
 		</span>
 		<span>
-			<b>Label: </b> <label for="some_textbox"><%=word_for_attr :label_text%></label>
+			<b>Label: </b> <label for="some_textbox"><%=ta :label_text%></label>
 			<input type="text" name="some_textbox">
 		</span>
 		<span>
-			<b>Textbox: </b> <input type="textbox" name="<%=rand(1000)%>"
-									title="<%=word_for_attr :textbox_title%>" 
-									value="<%=word_for_attr :textbox_value%>" 
-									placeholder="<%=word_for_attr :textbox_placeholder%>">
+			<b>Textbox: </b> <input type="textbox" name="<%=Time.now.to_i%>_0"
+									title="<%=ta :textbox_title%>" 
+									value="<%=ta :textbox_value%>" 
+									placeholder="<%=ta :textbox_placeholder%>">
 		</span>
 		<span>
-			<b>Textarea: </b> <textarea name="<%=rand(1000)%>"
-									title="<%=word_for_attr :textarea_title%>"
-									placeholder="<%=word_for_attr :textarea_placeholder%>"><%=word_for_attr :textarea_value%></textarea>
+			<b>Textarea: </b> <textarea name="<%=Time.now.to_i%>_1"
+									title="<%=ta :textarea_title%>"
+									placeholder="<%=ta :textarea_placeholder%>"><%=ta :textarea_value%></textarea>
 		</span>
 		<span>
-			<b>Checkbox: </b> <input type="checkbox"  name="<%=rand(1000)%>"
-								title="<%=word_for_attr :checkbox_title%>" 
-								value="<%=word_for_attr :checkbox_value%>">
+			<b>Checkbox: </b> <input type="checkbox"  name="<%=Time.now.to_i%>_2"
+								title="<%=ta :checkbox_title%>" 
+								value="<%=ta :checkbox_value%>">
 		</span>
 		<span>
-			<b>Radio: </b> <input type="radio"  name="<%=rand(1000)%>"
-								title="<%=word_for_attr :radio_title%>" 
-								value="<%=word_for_attr :radio_value%>">
+			<b>Radio: </b> <input type="radio"  name="<%=Time.now.to_i%>_3"
+								title="<%=ta :radio_title%>" 
+								value="<%=ta :radio_value%>">
 		</span>
 		<span>
-			<b>Select: </b> <select title="<%=word_for_attr :select_title%>">
-								<option value="<%=word_for_attr :option_value_0%>"><%=word_for_attr :option_text_0%></option>
-								<option value="<%=word_for_attr :option_value_1%>"><%=word_for_attr :option_text_1%></option>
+			<b>Select: </b> <select title="<%=ta :select_title%>">
+								<option value="<%=ta :option_value_0%>"><%=ta :option_text_0%></option>
+								<option value="<%=ta :option_value_1%>"><%=ta :option_text_1%></option>
 							</select>
 		</span>
 		<span>
 			<b>Button(Input): </b> <input type="button" 
-									title="<%=word_for_attr :input_button_title%>" 
-									value="<%=word_for_attr :input_button_value%>" 
+									title="<%=ta :input_button_title%>" 
+									value="<%=ta :input_button_value%>" 
 									onclick="alert('hello');">
 		</span>
 		<span>
 			<b>Submit(Input): </b> <input type="submit" 
-									title="<%=word_for_attr :submit_title%>" 
-									value="<%=word_for_attr :submit_value%>" 
+									title="<%=ta :submit_title%>" 
+									value="<%=ta :submit_value%>" 
 									onclick="alert('hello');">
 		</span>
 		<span>
-			<b>Button: </b> <button title="<%=word_for_attr :button_title%>" onclick="alert('hello');"><%=word_for_attr :button_value%></button>
+			<b>Button: </b> <button title="<%=ta :button_title%>" onclick="alert('hello');"><%=ta :button_value%></button>
 		</span>
 		<span>
 			<b>Late Text: </b> <span id="late_text"></span>
@@ -84,7 +84,7 @@
 			<script type="text/javascript">
 				
 				setTimeout(function() {
-					$('#late_text').html("<%=word_for :late_text%>");
+					$('#late_text').html("<%=t :late_text%>");
 				},5000);
 				
 			</script>
@@ -98,9 +98,9 @@
 			<script type="text/javascript">
 				
 				setTimeout(function() {
-					$('#late_textbox').attr("title","<%=word_for_attr :late_textbox_title%>");
-					$('#late_textbox').val("<%=word_for_attr :late_textbox_value%>");
-					$('#late_textbox').attr("placeholder","<%=word_for_attr :late_textbox_placeholder%>");
+					$('#late_textbox').attr("title","<%=ta :late_textbox_title%>");
+					$('#late_textbox').val("<%=ta :late_textbox_value%>");
+					$('#late_textbox').attr("placeholder","<%=ta :late_textbox_placeholder%>");
 				},5000);
 				
 			</script>

@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     end
     
     session[:locale] ||= "en"
-    whowish_word.set_locale(session[:locale])
+    I18n.locale = session[:locale].to_sym
   end
   
   
