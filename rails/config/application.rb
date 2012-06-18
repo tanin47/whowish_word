@@ -20,11 +20,9 @@ Bundler.require(:default, $ORM_ENGINE, Rails.env) if defined?(Bundler)
 module WhowishWordRails
   
   class Application < Rails::Application
-    
     config.encoding = "utf-8"
     config.filter_parameters += [:password]
     config.active_support.deprecation = :stderr
-    
   end
   
 end

@@ -1,4 +1,4 @@
-class WhowishWordHtml < ActiveRecord::Base
+# class WhowishWordHtml < ActiveRecord::Base
   
   
-end
+# end

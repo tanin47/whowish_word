@@ -12,11 +12,11 @@ module WhowishWord
       
     end
     
-    def run_database_migration
+    # def run_database_migration
       
-      Dir[File.expand_path("../db_migration/#{@orm_engine}/**/*.rb", __FILE__)].each {|f| require f}
+    #   Dir[File.expand_path("../db_migration/#{@orm_engine}/**/*.rb", __FILE__)].each {|f| require f}
       
-    end
+    # end
     
       
     
@@ -31,7 +31,7 @@ module WhowishWord
     
     def load_rails
       
-      paths = ["controllers","models/#{@orm_engine}"]
+      paths = ["controllers"]
   
       # load all controllers, helpers, and models
       paths.each do |dir|

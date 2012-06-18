@@ -1,6 +1,6 @@
-begin 
-  WhowishWordHtml.collection.drop_indexes
-  WhowishWordHtml.create_indexes
-rescue Exception=>e
+# begin 
+#   WhowishWordHtml.collection.drop_indexes
+#   WhowishWordHtml.create_indexes
+# rescue Exception=>e
 
-end
+# end

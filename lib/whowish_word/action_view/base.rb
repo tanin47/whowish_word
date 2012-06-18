@@ -2,6 +2,7 @@
 if defined?(ActionView) and defined?(ActionView::Base)
 
   class ActionView::Base
+    include WhowishWord::Constant
 
 
     def whowish_word_javascript_and_css(force = false)
@@ -57,6 +58,25 @@ if defined?(ActionView) and defined?(ActionView::Base)
       namespace = get_relative_view_path(@whowish_word_page)
       global_word_for_attr(namespace, id, *variables)
       
+    end
+
+    alias_method :previous_t, :t
+    def t(uid, *variables)
+      puts "#{uid} #{variables}"
+      # puts "#{I18n.translations.inspect}"
+      # I18n.translations[:en][:hello] = "yeah"
+
+      if @whowish_word_config.edit_mode == true
+        s = PREFIX + \
+             SEPARATOR + \
+             uid.to_s + \
+             SEPARATOR + \
+             previous_t(uid, *variables)
+        return "<dfn>#{s}</dfn>".html_safe
+      else
+        return previous_t(uid, *variables)
+      end
+     
     end
 
 

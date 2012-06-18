@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails'
-gem 'rake','0.8.7'
+gem 'rails', '3.2.3'
 
 gem 'rspec-rails'
 gem 'watir-webdriver-rails'

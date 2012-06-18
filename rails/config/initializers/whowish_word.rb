@@ -1,3 +1,3 @@
 
-WhowishWord.init($ORM_ENGINE)
+WhowishWord.init()
 
