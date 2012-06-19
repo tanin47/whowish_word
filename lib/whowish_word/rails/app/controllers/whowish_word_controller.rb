@@ -36,7 +36,7 @@ class WhowishWordController < ApplicationController
       filename = "#{keys[1..-1].join("_")}_#{filename}"
     end
 
-    paths = [Rails.root, "config", "locales", "whowish_word"]
+    paths = [ WhowishWord.config_file_dir ]
     paths.push(keys[0]) if keys.length > 0
     paths.push(filename)
 

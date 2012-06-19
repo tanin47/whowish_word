@@ -9,15 +9,17 @@ module WhowishWord
   include WhowishWord::Initializer
   include WhowishWord::WordFor
   # include WhowishWord::Authentication
+
+  attr_accessor :config_file_dir
   
-  attr_accessor :words
-  
-  def init()
+  def init(config_file_dir = File.join(Rails.root, 'config', 'locales', 'whowish_word'))
     install_route
     install_hook
     load_rails
+
+    @config_file_dir = config_file_dir
     
-    Rails.configuration.i18n.load_path += Dir[Rails.root.join('config', 'locales', 'whowish_word', '**', '*.{rb,yml}')]
+    Rails.configuration.i18n.load_path = Dir[File.join(@config_file_dir, '**', '*.{rb,yml}')]
   
     I18n.class_eval do
       class << self
