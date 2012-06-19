@@ -5,7 +5,11 @@ class ApplicationController < ActionController::Base
   before_filter :activate_whowish_word, :set_locale
   
   def activate_whowish_word
-    if params[:edit_mode] == "yes"
+    if params[:edit_mode]
+      session[:edit_mode] = params[:edit_mode]
+    end
+
+    if session[:edit_mode] == "yes"
       whowish_word.activate_edit_mode
     end
   end

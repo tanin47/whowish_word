@@ -50,7 +50,7 @@ if defined?(ActionView) and defined?(ActionView::Base)
       if @whowish_word_config.edit_mode == true
         s = PREFIX + \
              SEPARATOR + \
-             uid.to_s + \
+             scope_key_by_partial(uid.to_s) + \
              SEPARATOR + \
              previous_t(uid, *variables)
         return "<dfn>#{s}</dfn>".html_safe
@@ -63,7 +63,7 @@ if defined?(ActionView) and defined?(ActionView::Base)
       if @whowish_word_config.edit_mode == true
         s = PREFIX + \
              SEPARATOR + \
-             uid.to_s + \
+             scope_key_by_partial(uid.to_s) + \
              SEPARATOR + \
              previous_t(uid, *variables)
         return s.html_safe

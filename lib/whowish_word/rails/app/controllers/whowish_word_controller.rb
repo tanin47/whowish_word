@@ -27,7 +27,23 @@ class WhowishWordController < ApplicationController
   end
   
   def change_word
-    locale_file = File.join(Rails.root, "config", "locales", "whowish_word", "#{I18n.locale}.yml")
+
+    keys = params[:word_id].split(".")
+    uid = keys.pop
+    filename = "#{I18n.locale}.yml"
+
+    if keys.length > 1
+      filename = "#{keys[1..-1].join("_")}_#{filename}"
+    end
+
+    paths = [Rails.root, "config", "locales", "whowish_word"]
+    paths.push(keys[0]) if keys.length > 0
+    paths.push(filename)
+
+    locale_file = File.join(*paths)
+    FileUtils.mkdir_p(File.join(*paths[0..-2]))
+
+    translation_keys = I18n.normalize_keys(I18n.locale, params[:word_id], nil, ".")
     
     file = nil
     data = {}
@@ -48,8 +64,14 @@ class WhowishWordController < ApplicationController
         data = {}
       end
 
-      data[I18n.locale.to_s] ||= {}
-      data[I18n.locale.to_s][params[:word_id]] = params[:content]
+      direct = data
+      translation_keys[0..-2].each { |k|
+        k = k.to_s
+        direct[k] ||= {}
+        direct = direct[k]
+      }
+
+      direct[translation_keys.last.to_s] = params[:content]
 
       file.rewind
       file.write(YAML.dump(data))
@@ -60,9 +82,13 @@ class WhowishWordController < ApplicationController
       file.close
     end
 
-    I18n.translations[I18n.locale.to_sym] ||= {}
-    I18n.translations[I18n.locale.to_sym][params[:word_id].to_sym] = params[:content]
-    
+    direct = I18n.translations
+    translation_keys[0..-2].each { |k|
+      direct[k] ||= {}
+      direct = direct[k]
+    }
+    direct[translation_keys.last] = params[:content]
+
     render :json=>{
       :ok => true
     }

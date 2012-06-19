@@ -5,6 +5,28 @@ body, input, textarea, button, select, option, div, span {
 	line-height: 30px;
 }
 
+.Menu {
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+}
+
+.Menu > li {
+	display: inline-block;
+	padding: 10px;
+	margin: 0px;
+}
+
+.Menu > li.Active {
+	border: 1px solid #CCC;
+	background-color: #EFEFEF;
+}
+
+.Menu > li.Active > a {
+	font-weight: bold;
+	text-decoration: none;
+}
+
 body > form > div {
 	display:block;
 	margin-left:25px;

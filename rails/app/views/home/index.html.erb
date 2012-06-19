@@ -1,24 +1,40 @@
-<%=I18n.locale%>
-<a href="/home?locale=en">en</a><br/>
-<a href="/home?locale=th">th</a><br/>
-<a href="/home?locale=jp">jp</a>
+<h1>
+	This is the test page for
+	<a href="http://www.github.com/tanin47/whowish_word">whowish_word</a>
+</h1>
+<h3>Choose the language</h3>
+<ul class="Menu">
+	<li class="<%='Active' if I18n.locale == :en%>">
+		<a href="/home?locale=en">en</a>
+	</li>
+	<li class="<%='Active' if I18n.locale == :th%>">
+		<a href="/home?locale=th">th</a>
+	</li>
+	<li class="<%='Active' if I18n.locale == :jp%>">
+		<a href="/home?locale=jp">jp</a>
+	</li>
+	<li>
+		<%
+			if @whowish_word_config.edit_mode == true
+		%>
+				<a href="/home?edit_mode=no" style="font-weight: bold;color: green;">Edit-Mode: ON</a>
+		<%
+			else
+		%>
+				<a href="/home?edit_mode=yes" style="font-weight: bold;color: red;">Edit-Mode: OFF</a>
+		<%
+			end
+		%>
+	</li>
+</ul>
+
 <form autocomplete="off" onsubmit="return false;">
 	<div>
 		<span style="width:600px;">
 			<p>This is the page that tests every element.</p>
 		</span>
 		<span>
-			<%
-				if @whowish_word_config.edit_mode == true
-			%>
-					<a href="/home">Dectivate edit mode</a>
-			<%
-				else
-			%>
-					<a href="/home?edit_mode=yes">Activate edit mode</a>
-			<%
-				end
-			%>
+
 		</span>
 		<span>
 			<b>Text: </b> <%=t :text%>

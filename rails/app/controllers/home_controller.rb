@@ -5,5 +5,4 @@ class HomeController < ApplicationController
   def edit_nested
     render :edit, :layout=>"nested"
   end
-  
 end
