@@ -52,7 +52,7 @@ if defined?(ActionView) and defined?(ActionView::Base)
              SEPARATOR + \
              scope_key_by_partial(uid.to_s) + \
              SEPARATOR + \
-             previous_t(uid, *variables)
+             previous_t(uid)
         return "<dfn>#{s}</dfn>".html_safe
       else
         return previous_t(uid, *variables)
@@ -65,7 +65,7 @@ if defined?(ActionView) and defined?(ActionView::Base)
              SEPARATOR + \
              scope_key_by_partial(uid.to_s) + \
              SEPARATOR + \
-             previous_t(uid, *variables)
+             previous_t(uid)
         return s.html_safe
       else
         return previous_t(uid, *variables)
