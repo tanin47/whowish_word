@@ -59,6 +59,10 @@ if defined?(ActionView) and defined?(ActionView::Base)
       end
     end
 
+    def th(uid, *variables)
+      return t(uid, *variables).html_safe
+    end
+
     def ta(uid, *variables)
       if @whowish_word_config.edit_mode == true
         s = PREFIX + \

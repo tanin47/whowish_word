@@ -127,5 +127,6 @@ DEPENDENCIES
   mongoid
   rails (= 3.2.3)
   rspec-rails
+  rubyzip
   sqlite3
   watir-webdriver-rails

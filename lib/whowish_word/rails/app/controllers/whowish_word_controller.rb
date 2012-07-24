@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class WhowishWordController < ApplicationController
   def css
     text = ""
@@ -92,5 +94,22 @@ class WhowishWordController < ApplicationController
     render :json=>{
       :ok => true
     }
+  end
+
+  def download
+    t = Tempfile.new("whowish_word.zip")
+    
+    Zip::ZipOutputStream.open(t.path) do |zos|
+      Dir["#{WhowishWord.config_file_dir}/**/*"].each do |file|
+        next if File.directory?(file)
+
+        zos.put_next_entry("#{file.sub(WhowishWord.config_file_dir + "/", "")}")
+        zos.print IO.read(file)
+      end
+    end
+
+    send_file t.path, :filename => "whowish_word.zip", :content_type => "application/zip"
+
+    t.close
   end
 end

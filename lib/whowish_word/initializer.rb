@@ -8,6 +8,7 @@ module WhowishWord
         match "whowish_word/change_word", :to=>"whowish_word#change_word"
         match "whowish_word_css", :to=>"whowish_word#css"
         match "whowish_word_js", :to=>"whowish_word#js"
+        match "whowish_word/download", :to=>"whowish_word#download"
       end
       
     end
