@@ -97,6 +97,9 @@ class WhowishWordController < ApplicationController
   end
 
   def download
+    require 'zip/zip'
+    require 'zip/zipfilesystem'
+    
     t = Tempfile.new("whowish_word.zip")
     
     Zip::ZipOutputStream.open(t.path) do |zos|
