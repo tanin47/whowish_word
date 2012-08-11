@@ -11,16 +11,16 @@ module WhowishWord
   # include WhowishWord::Authentication
 
   attr_accessor :config_file_dir
-  
+
   def init(config_file_dir = File.join(Rails.root, 'config', 'locales', 'whowish_word'))
     install_route
     install_hook
     load_rails
 
     @config_file_dir = config_file_dir
-    
+
     Rails.configuration.i18n.load_path = Dir[File.join(@config_file_dir, '**', '*.{rb,yml}')]
-  
+
     I18n.class_eval do
       class << self
         def translations
@@ -31,10 +31,28 @@ module WhowishWord
 
     I18n::MissingTranslation::Base.class_eval do
       def html_message
-        key = keys.last.to_s.gsub('_', ' ').gsub(/\b('?[a-z])/) { $1.capitalize }
-        key
+        key = keys.last.to_s.gsub('_', ' ').gsub(/\b('?[a-z])/) { $1 }
+        I18n.interpolate_hash(key, options)
       end
     end
+
+    I18n.class_eval do
+      class << self
+        def interpolate_hash(string, values)
+          string.gsub(I18n::INTERPOLATION_PATTERN) do |match|
+            if match == '%%'
+              '%'
+            else
+              key = ($1 || $2).to_sym
+              value = values.key?(key) ? values[key] : "%{#{key}}" #raise(MissingInterpolationArgument.new(values, string))
+              value = value.call(values) if value.respond_to?(:call)
+              $3 ? sprintf("%#{$3}", value) : value
+            end
+          end
+        end
+      end
+    end
+
   end
 
   extend self

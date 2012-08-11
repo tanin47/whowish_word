@@ -61,6 +61,7 @@
 	padding-bottom:4px;
 	margin-top:5px;
 	margin-bottom:5px;
+	white-space: nowrap;
 }
 
 .whowishWordDialog > span {
@@ -79,15 +80,14 @@
 }
 
 .whowishWordDialog {
-	
 	position:absolute;
 	left:100px;
 	top:100px;
 
 	display:none;
 	z-index:1000001;
-	
-	
+
+	width: 600px;
 	
 	font-family: 'Bitstream Vera Sans Mono','Courier',monospace;
 	background-color:#DDDDDD;

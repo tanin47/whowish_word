@@ -37,7 +37,13 @@
 
 		</span>
 		<span>
-			<b>Text: </b> <%=t :text, :name => "Tanin"%> <%=t :text, :name => "Patcy"%>
+			<b>HTML: </b> <%=th :html_text%>
+		</span>
+		<span>
+			<b>Image: </b> <img src="<%=ta :image_src%>">
+		</span>
+		<span>
+			<b>Text: </b> <%=t '.default_variable_%{name}', :name => "Tanin"%>
 		</span>
 		<span>
 			<b>Bullet: </b> <ul>
@@ -54,8 +60,8 @@
 		</span>
 		<span>
 			<b>Textbox: </b> <input type="textbox" name="<%=Time.now.to_i%>_0"
-									title="<%=ta :textbox_title%>" 
-									value="<%=ta :textbox_value%>" 
+									title="<%=ta :textbox_title%>"
+									value="<%=ta :textbox_value%>"
 									placeholder="<%=ta :textbox_placeholder%>">
 		</span>
 		<span>
@@ -65,12 +71,12 @@
 		</span>
 		<span>
 			<b>Checkbox: </b> <input type="checkbox"  name="<%=Time.now.to_i%>_2"
-								title="<%=ta :checkbox_title%>" 
+								title="<%=ta :checkbox_title%>"
 								value="<%=ta :checkbox_value%>">
 		</span>
 		<span>
 			<b>Radio: </b> <input type="radio"  name="<%=Time.now.to_i%>_3"
-								title="<%=ta :radio_title%>" 
+								title="<%=ta :radio_title%>"
 								value="<%=ta :radio_value%>">
 		</span>
 		<span>
@@ -80,15 +86,15 @@
 							</select>
 		</span>
 		<span>
-			<b>Button(Input): </b> <input type="button" 
-									title="<%=ta :input_button_title%>" 
-									value="<%=ta :input_button_value%>" 
+			<b>Button(Input): </b> <input type="button"
+									title="<%=ta :input_button_title%>"
+									value="<%=ta :input_button_value%>"
 									onclick="alert('hello');">
 		</span>
 		<span>
-			<b>Submit(Input): </b> <input type="submit" 
-									title="<%=ta :submit_title%>" 
-									value="<%=ta :submit_value%>" 
+			<b>Submit(Input): </b> <input type="submit"
+									title="<%=ta :submit_title%>"
+									value="<%=ta :submit_value%>"
 									onclick="alert('hello');">
 		</span>
 		<span>
@@ -96,29 +102,29 @@
 		</span>
 		<span>
 			<b>Late Text: </b> <span id="late_text"></span>
-			
+
 			<script type="text/javascript">
-				
+
 				setTimeout(function() {
 					$('#late_text').html("<%=t :late_text%>");
 				},5000);
-				
+
 			</script>
 		</span>
 		<span>
 			<b>Late Textbox: </b> <input type="textbox" id="late_textbox" name="<%=rand(1000)%>"
-									title="title" 
-									value="value" 
+									title="title"
+									value="value"
 									placeholder="placeholder">
-									
+
 			<script type="text/javascript">
-				
+
 				setTimeout(function() {
 					$('#late_textbox').attr("title","<%=ta :late_textbox_title%>");
 					$('#late_textbox').val("<%=ta :late_textbox_value%>");
 					$('#late_textbox').attr("placeholder","<%=ta :late_textbox_placeholder%>");
 				},5000);
-				
+
 			</script>
 		</span>
 	</div>
