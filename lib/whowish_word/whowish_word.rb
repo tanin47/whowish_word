@@ -31,7 +31,6 @@ module WhowishWord
 
     I18n::MissingTranslation::Base.class_eval do
       def html_message
-        puts @locale
         if @locale == :en
           key = keys.last.to_s.gsub('_', ' ').gsub(/\b('?[a-z])/) { $1 }
           I18n.interpolate_hash(key, options)
