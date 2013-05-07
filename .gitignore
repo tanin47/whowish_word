@@ -6,3 +6,4 @@ rails/db/*.sqlite3
 rails/tmp/*
 rails/.bundle/*
 .bundle/*
+.rvmrc
