@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class WhowishWordController < ApplicationController
   def css
     text = ""
@@ -39,8 +37,12 @@ class WhowishWordController < ApplicationController
   end
 
   def download
-    require 'zip/zip'
-    require 'zip/zipfilesystem'
+    begin
+      require 'zip/zip'
+      require 'zip/zipfilesystem'
+    rescue => e
+      raise 'Please install the rubyzip gem in order to download whowish_word.zip through the web interface'
+    end
 
     t = Tempfile.new("whowish_word.zip")
 

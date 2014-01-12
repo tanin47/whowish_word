@@ -1,4 +1,2 @@
-source 'http://rubygems.org'
-
-gem 'rubyzip'
-gem 'rspec'
+source 'https://rubygems.org'
+gemspec

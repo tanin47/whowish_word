@@ -3,11 +3,11 @@ if defined?(ActionView) and defined?(ActionView::Base)
     include WhowishWord::Constant
 
     def whowish_word_active?
-      @whowish_word_config.try(:edit_mode) == true
+      @whowish_word_config.edit_mode == true
     end
 
     def whowish_word_javascript_and_css(force = false)
-      return "" if whowish_word_active? and force == false
+      return "" if !whowish_word_active? and force == false
 
       script_text = <<-HTML
         <script type="text/javascript">
@@ -23,6 +23,8 @@ if defined?(ActionView) and defined?(ActionView::Base)
     end
 
     alias_method :previous_t, :t
+
+    # Translations that are plain-text and outside HTML attributes
     def t(uid, *variables)
       return previous_t(uid, *variables) unless whowish_word_active?
 
@@ -33,17 +35,19 @@ if defined?(ActionView) and defined?(ActionView::Base)
              SEPARATOR + \
              scope_key_by_partial(uid.to_s) + \
              SEPARATOR + \
-             previous_t(uid)
+             translation
         return "<dfn>#{s}</dfn>".html_safe
       else
         return previous_t(uid, *variables)
       end
     end
 
+    # Translations that may contain HTML tags and are outside HTML attributes
     def th(uid, *variables)
       return t(uid, *variables).html_safe
     end
 
+    # Translations that are inside HTML attributes (must be plain-text by their definitions)
     def ta(uid, *variables)
       return previous_t(uid, *variables) unless whowish_word_active?
 

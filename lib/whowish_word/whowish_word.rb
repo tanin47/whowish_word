@@ -1,15 +1,11 @@
 require File.expand_path("../config", __FILE__)
 require File.expand_path("../constant", __FILE__)
 require File.expand_path("../initializer", __FILE__)
-require File.expand_path("../word_for", __FILE__)
-require File.expand_path("../authentication", __FILE__)
-Dir[File.expand_path("../backends/**/*.rb", __FILE__)].each {|f| require f}
+Dir[File.expand_path("../backends/**/*.rb", __FILE__)].each { |f| require f }
 
 module WhowishWord
   include WhowishWord::Constant
   include WhowishWord::Initializer
-  include WhowishWord::WordFor
-  # include WhowishWord::Authentication
 
   attr_accessor :config_file_dir, :backend
 
@@ -59,7 +55,6 @@ module WhowishWord
         end
       end
     end
-
   end
 
   extend self

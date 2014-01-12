@@ -1,18 +1,8 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.2.3'
+gem 'poltergeist', '1.5.0'
+gem 'rspec-rails', '2.14.1'
 
-gem 'rubyzip'
-gem 'rspec-rails'
-gem 'watir-webdriver-rails'
-
-group :active_record do
-	gem 'sqlite3'
-end
-
-group :mongoid do
-	gem 'mongoid'
-	gem 'bson_ext'
-end
 
 
