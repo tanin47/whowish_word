@@ -2,24 +2,18 @@ require 'spec_helper'
 
 describe WhowishWordController do
   it "adds a word correctly" do
-
     word_id = "test"
-    content = "Hello"
+    content = "Hello#{Time.now}"
 
     post :change_word, {
-                          :word_id => word_id,
-                          :content => content
-                        }
+      :word_id => word_id,
+      :content => content
+    }
 
     body = expect_json_response
     body['ok'].should be_true
 
     I18n.t(word_id.to_sym).should == content
-  end
-
-  it 'calls set on the backend' do
-    WhowishWord.backend.any_instance.should_receive(:set)
-    post :change_word, { :word_id => 'hi', :content => 'hi' }
   end
 
   context 'with successful set' do
@@ -28,7 +22,7 @@ describe WhowishWordController do
     end
 
     it 'returns ok: true' do
-      post :change_word, { :word_id => 'hi', :content => 'hi' }
+      post :change_word, { :word_id => 'hi1', :content => 'hi2' }
       response.body.should == '{"ok":true}'
     end
   end
