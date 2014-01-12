@@ -3,6 +3,7 @@ require File.expand_path("../constant", __FILE__)
 require File.expand_path("../initializer", __FILE__)
 require File.expand_path("../word_for", __FILE__)
 require File.expand_path("../authentication", __FILE__)
+Dir[File.expand_path("../backends/**/*.rb", __FILE__)].each {|f| require f}
 
 module WhowishWord
   include WhowishWord::Constant
@@ -10,7 +11,7 @@ module WhowishWord
   include WhowishWord::WordFor
   # include WhowishWord::Authentication
 
-  attr_accessor :config_file_dir
+  attr_accessor :config_file_dir, :backend
 
   def init(config_file_dir = File.join(Rails.root, 'config', 'locales', 'whowish_word'))
     install_route
@@ -18,6 +19,7 @@ module WhowishWord
     load_rails
 
     @config_file_dir = config_file_dir
+    @backend = WhowishWord::Backends::FlatFileStore
 
     Rails.configuration.i18n.load_path = Dir[File.join(@config_file_dir, '**', '*.{rb,yml}')]
 
