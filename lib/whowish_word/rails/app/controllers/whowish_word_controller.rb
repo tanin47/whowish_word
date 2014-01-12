@@ -38,10 +38,9 @@ class WhowishWordController < ApplicationController
 
   def download
     begin
-      require 'zip/zip'
-      require 'zip/zipfilesystem'
+      require 'zip'
     rescue Exception => e
-      raise 'Please install the rubyzip gem in order to download whowish_word.zip through the web interface'
+      raise 'Please install the rubyzip gem in order to download whowish_word.zip through the web interface #{e}'
     end
 
     t = Tempfile.new("whowish_word.zip")
