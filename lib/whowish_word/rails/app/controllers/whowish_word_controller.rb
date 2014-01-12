@@ -40,7 +40,7 @@ class WhowishWordController < ApplicationController
     begin
       require 'zip/zip'
       require 'zip/zipfilesystem'
-    rescue => e
+    rescue Exception => e
       raise 'Please install the rubyzip gem in order to download whowish_word.zip through the web interface'
     end
 
