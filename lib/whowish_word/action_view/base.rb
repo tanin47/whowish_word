@@ -2,10 +2,6 @@ if defined?(ActionView) and defined?(ActionView::Base)
   class ActionView::Base
     include WhowishWord::Constant
 
-    def whowish_word_active?
-      @whowish_word_config.edit_mode == true
-    end
-
     def whowish_word_javascript_and_css(force = false)
       return "" if !whowish_word_active? and force == false
 

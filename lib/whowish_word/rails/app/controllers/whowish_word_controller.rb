@@ -1,4 +1,10 @@
 class WhowishWordController < ApplicationController
+  before_filter do
+    if !whowish_word_active?
+      render :text => 'Not found', :status => 404
+    end
+  end
+
   def css
     text = ""
 
@@ -37,25 +43,22 @@ class WhowishWordController < ApplicationController
   end
 
   def download
+    raise 'Not supported'
+
     begin
       require 'zip'
     rescue Exception => e
-      raise 'Please install the rubyzip gem in order to download whowish_word.zip through the web interface #{e}'
+      raise 'Please install the rubyzip gem (version 1.1.0) in order to download whowish_word.zip through the web interface #{e}'
     end
 
-    t = Tempfile.new("whowish_word.zip")
-
-    Zip::ZipOutputStream.open(t.path) do |zos|
+    zipfile = Tempfile.new("whowish_word.zip")
+    Zip::File.open(zipfile.path, Zip::File::CREATE) do |zipfile|
       Dir["#{WhowishWord.config_file_dir}/**/*"].each do |file|
-        next if File.directory?(file)
-
-        zos.put_next_entry("#{file.sub(WhowishWord.config_file_dir + "/", "")}")
-        zos.print IO.read(file)
+        zipfile.add(file.sub(directory, ''), file)
       end
     end
 
-    send_file t.path, :filename => "whowish_word.zip", :content_type => "application/zip"
-
-    t.close
+    send_file zipfile.path, :filename => "whowish_word.zip", :content_type => "application/zip"
+    zipfile.close
   end
 end
